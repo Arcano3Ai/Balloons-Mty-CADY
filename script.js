@@ -60,7 +60,7 @@ function initMobileMenu() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Ambient Music Player Toggle
+   3. Ambient Music Player Toggle (Official Track: Balloons MTY CADY.wav)
    -------------------------------------------------------------------------- */
 function initAudioPlayer() {
   const audioBtn = document.getElementById('audioToggleBtn');
@@ -77,7 +77,7 @@ function initAudioPlayer() {
         audioBtn.classList.add('playing');
         audioBtn.querySelector('.audio-label').textContent = 'DESACTIVAR MÚSICA';
       }).catch(err => {
-        console.log('Audio playback prevented by browser:', err);
+        console.log('Audio playback prevented by browser policy:', err);
       });
     } else {
       audio.pause();
@@ -89,7 +89,7 @@ function initAudioPlayer() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Video Showreel Player Overlay
+   4. Official Video Showreel Player Overlay
    -------------------------------------------------------------------------- */
 function initVideoPlayer() {
   const playOverlay = document.getElementById('videoPlayBtn');
