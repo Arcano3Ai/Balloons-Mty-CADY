@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initHeroCanvas();
   initAudioPlayer();
-  initVideoPlayer();
+  initVideoModal();
   initBeforeAfterSlider();
   initPortfolioFilter();
   initLightboxModal();
@@ -86,33 +86,45 @@ function initAudioPlayer() {
       audioBtn.querySelector('.audio-label').textContent = 'MÚSICA AMBIENTE';
     }
   });
-
-  // Optional user gesture trigger for ambient music
-  const enableAudioOnFirstTouch = () => {
-    document.removeEventListener('click', enableAudioOnFirstTouch);
-    document.removeEventListener('touchstart', enableAudioOnFirstTouch);
-  };
-  document.addEventListener('click', enableAudioOnFirstTouch, { once: true });
-  document.addEventListener('touchstart', enableAudioOnFirstTouch, { once: true });
 }
 
 /* --------------------------------------------------------------------------
-   4. Official Video Showreel Player Overlay
+   4. Video Lightbox Modal with Close Functionality (X / Backdrop / ESC)
    -------------------------------------------------------------------------- */
-function initVideoPlayer() {
-  const playOverlay = document.getElementById('videoPlayBtn');
-  const video = document.getElementById('mainShowreelVideo');
+function initVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const backdrop = document.getElementById('videoModalBackdrop');
+  const closeBtn = document.getElementById('closeVideoModalBtn');
+  const videoPlayer = document.getElementById('modalVideoPlayer');
+  
+  const openShowreelBtn = document.getElementById('openVideoShowreelContainer');
+  const openHeroVideoBtn = document.getElementById('openHeroVideoBtn');
 
-  if (!playOverlay || !video) return;
+  if (!modal || !videoPlayer) return;
 
-  playOverlay.addEventListener('click', () => {
-    playOverlay.classList.add('playing');
-    video.muted = false;
-    video.play();
-  });
+  function openVideo() {
+    modal.classList.add('active');
+    videoPlayer.currentTime = 0;
+    videoPlayer.play().catch(err => console.log('Autoplay prevented:', err));
+  }
 
-  video.addEventListener('pause', () => {
-    playOverlay.classList.remove('playing');
+  function closeVideo() {
+    modal.classList.remove('active');
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0;
+  }
+
+  if (openShowreelBtn) openShowreelBtn.addEventListener('click', openVideo);
+  if (openHeroVideoBtn) openHeroVideoBtn.addEventListener('click', openVideo);
+
+  if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+  if (backdrop) backdrop.addEventListener('click', closeVideo);
+
+  // Close on Escape Key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeVideo();
+    }
   });
 }
 

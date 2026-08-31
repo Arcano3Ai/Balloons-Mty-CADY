@@ -134,6 +134,9 @@
           <a href="#decoraciones" class="btn btn-primary">
             <i class="bi bi-grid-fill"></i> VER DECORACIONES
           </a>
+          <button id="openHeroVideoBtn" class="btn btn-secondary">
+            <i class="bi bi-play-circle-fill" style="color:var(--magenta-neon);"></i> VER VIDEO INTRO
+          </button>
           <a href="#cotizacion" class="btn btn-whatsapp">
             <i class="bi bi-whatsapp"></i> COTIZAR POR WHATSAPP
           </a>
@@ -229,18 +232,32 @@
           Disfruta del video oficial de BALLOONS MTY CADY mostrando la creatividad y elegancia de nuestros eventos en Monterrey.
         </p>
 
-        <div class="video-container">
-          <video id="mainShowreelVideo" class="showreel-video" poster="assets/images/hero_balloons_lux.png" controls preload="metadata" playsinline>
-            <source src="assets/video/videointro.mp4" type="video/mp4">
-            Tu navegador no soporta reproducción de video HTML5.
-          </video>
-          <div class="video-overlay-play" id="videoPlayBtn">
+        <div class="video-container" id="openVideoShowreelContainer">
+          <img src="assets/images/hero_balloons_lux.png" alt="Video Thumbnail" class="showreel-video">
+          <div class="video-overlay-play">
             <div class="play-icon-glow"><i class="bi bi-play-fill"></i></div>
-            <span>VER VIDEO SHOWREEL</span>
+            <span>REPRODUCIR VIDEO EN PANTALLA COMPLETA</span>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- MODAL EMERGENTE DE VIDEO CON BOTÓN DE CIERRE (X) -->
+    <div id="videoModal" class="video-modal">
+      <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+      <div class="video-modal-content">
+        <button id="closeVideoModalBtn" class="video-modal-close" aria-label="Cerrar video">
+          <i class="bi bi-x-lg"></i> CERRAR VIDEO
+        </button>
+
+        <div class="video-wrapper">
+          <video id="modalVideoPlayer" controls playsinline preload="auto">
+            <source src="assets/video/videointro.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video HTML5.
+          </video>
+        </div>
+      </div>
+    </div>
 
     <!-- SECCIÓN 02 — NUESTRO TRABAJO (PORTAFOLIO EDITORIAL) -->
     <section id="portafolio" class="portfolio">
