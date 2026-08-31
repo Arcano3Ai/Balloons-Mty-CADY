@@ -1,12 +1,12 @@
 /* ==========================================================================
-   BALLOONS MTY CADY — INTERACTIVE SCRIPTS
-   Designed for Damariss Huerta | Monterrey, N.L.
+   LUXURY BALLOON & EVENT AGENCY PLATFORM — INTERACTIVE DEMO SCRIPTS
    "Creamos momentos que se quedan contigo"
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all interactive modules
   initBalloonCursor();
+  initThemeSwitcher();
   initHeaderScroll();
   initMobileMenu();
   initHeroCanvas();
@@ -19,6 +19,29 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteFormWhatsApp();
   initScrollAnimations();
 });
+
+/* --------------------------------------------------------------------------
+   -1. Live Color Theme Switcher for Prospective Buyers
+   -------------------------------------------------------------------------- */
+function initThemeSwitcher() {
+  const themeBtns = document.querySelectorAll('.theme-switcher-btn');
+
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      themeBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      const theme = btn.getAttribute('data-theme');
+      document.body.classList.remove('theme-royal-purple', 'theme-rose-champagne');
+
+      if (theme === 'royal-purple') {
+        document.body.classList.add('theme-royal-purple');
+      } else if (theme === 'rose-champagne') {
+        document.body.classList.add('theme-rose-champagne');
+      }
+    });
+  });
+}
 
 /* --------------------------------------------------------------------------
    0. Custom Balloon Cursor with Particle Sparkle Trail
@@ -155,7 +178,7 @@ function initMobileMenu() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Ambient Music Player Toggle (Official Track: Balloons MTY CADY.wav)
+   3. Ambient Music Player Toggle
    -------------------------------------------------------------------------- */
 function initAudioPlayer() {
   const audioBtn = document.getElementById('audioToggleBtn');
@@ -474,7 +497,7 @@ function initLightboxModal() {
    8. Interactive Event Visual Configurator
    -------------------------------------------------------------------------- */
 function initInteractiveConfigurator() {
-  const configOpts = document.querySelectorAll('.config-opt');
+  const configOpts = document.querySelectorAll('.config-opt:not(.theme-switcher-btn)');
   const summaryBtn = document.getElementById('configBuildBtn');
 
   const selectedState = {
@@ -486,8 +509,10 @@ function initInteractiveConfigurator() {
   };
 
   configOpts.forEach(opt => {
-    opt.addEventListener('click', (e) => {
+    opt.addEventListener('click', () => {
       const parentGroup = opt.closest('.config-step-group');
+      if (!parentGroup) return;
+
       parentGroup.querySelectorAll('.config-opt').forEach(o => o.classList.remove('selected'));
       opt.classList.add('selected');
 
@@ -553,13 +578,13 @@ function initQuoteFormWhatsApp() {
 
     // Structured message template for WhatsApp
     const waText = 
-`✨ *NUEVA SOLICITUD DE COTIZACIÓN - BALLOONS MTY CADY* ✨
+`✨ *SOLICITUD DE COTIZACIÓN / ADQUISICIÓN DEMO* ✨
 -----------------------------------------
-👤 *Cliente:* ${name}
+👤 *Nombre:* ${name}
 📱 *WhatsApp:* ${phone}
-🎉 *Evento:* ${eventType}
+🎯 *Objetivo / Evento:* ${eventType}
 📅 *Fecha:* ${date || 'Por definir'}
-📍 *Ubicación:* ${location || 'Monterrey N.L.'}
+📍 *Ubicación:* ${location || 'No especificada'}
 👥 *Invitados Aprox:* ${guests || 'No especificado'}
 🎈 *Tipo de Decoración:* ${decorType || 'Personalizada'}
 💰 *Presupuesto Aprox:* ${budget || 'Por cotizar'}
@@ -568,10 +593,10 @@ function initQuoteFormWhatsApp() {
 ${message || 'Sin mensaje adicional.'}
 
 -----------------------------------------
-Enviado desde el sitio web oficial.`;
+Enviado desde el sitio web demo.`;
 
     const encodedMsg = encodeURIComponent(waText);
-    const waNumber = '528118671408'; // Official contact number format for Monterrey
+    const waNumber = '528118671408';
     const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
 
     // Open WhatsApp in new tab

@@ -1,13 +1,12 @@
 /* ==========================================================================
-   BALLOONS MTY CADY — LUXURY DESIGN SYSTEM & STYLES
-   Designed for Damariss Huerta | Monterrey, N.L.
+   LUXURY BALLOON & EVENT AGENCY PLATFORM — WHITE LABEL DEMO SYSTEM
    "Creamos momentos que se quedan contigo"
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Color Palette */
+  /* Color Palette — Default: Midnight Magenta & Gold */
   --bg-midnight: #080611;
   --bg-card: rgba(18, 14, 34, 0.65);
   --bg-card-hover: rgba(28, 20, 50, 0.85);
@@ -54,6 +53,26 @@
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Dynamic Themes Override */
+body.theme-royal-purple {
+  --bg-midnight: #0A0518;
+  --magenta-neon: #00E5FF;
+  --magenta-glow: rgba(0, 229, 255, 0.4);
+  --magenta-gradient: linear-gradient(135deg, #00E5FF 0%, #8A2BE2 100%);
+  --shadow-neon-magenta: 0 10px 40px -10px rgba(0, 229, 255, 0.5);
+  --border-magenta: 1px solid rgba(0, 229, 255, 0.4);
+}
+
+body.theme-rose-champagne {
+  --bg-midnight: #140D12;
+  --magenta-neon: #FF69B4;
+  --magenta-glow: rgba(255, 105, 180, 0.4);
+  --magenta-gradient: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #C71585 100%);
+  --gold-metallic: #F3E5AB;
+  --shadow-neon-magenta: 0 10px 40px -10px rgba(255, 105, 180, 0.5);
+  --border-magenta: 1px solid rgba(255, 105, 180, 0.4);
+}
+
 /* Base Resets */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -74,6 +93,48 @@ body {
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
+}
+
+/* TOP ANNOUNCEMENT BAR FOR DEMO BUYERS */
+.demo-pitch-bar {
+  background: linear-gradient(90deg, #4A0E4E 0%, #FF007F 50%, #D4AF37 100%);
+  color: var(--text-white);
+  padding: 8px 0;
+  font-size: 0.82rem;
+  text-align: center;
+  position: relative;
+  z-index: 1002;
+  box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4);
+}
+
+.demo-pitch-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-demo-pitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  color: #080611;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-demo-pitch:hover {
+  transform: scale(1.06);
+  background: #FFF1B0;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
 }
 
 /* CUSTOM BALLOON CURSOR STYLES */
@@ -446,7 +507,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .header {
   position: fixed;
-  top: 0;
+  top: 36px;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -455,8 +516,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header.scrolled {
+  top: 0;
   padding: 10px 0;
-  background: rgba(8, 6, 17, 0.9);
+  background: rgba(8, 6, 17, 0.92);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -475,15 +537,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo-img {
-  height: 56px;
+  height: 54px;
   width: auto;
-  filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.4));
+  filter: drop-shadow(0 0 14px rgba(255, 0, 127, 0.5));
   transition: var(--transition);
 }
 
 .brand-logo:hover .brand-logo-img {
   transform: scale(1.06);
-  filter: drop-shadow(0 0 18px rgba(255, 0, 127, 0.7));
+  filter: drop-shadow(0 0 22px rgba(212, 175, 55, 0.8));
 }
 
 .nav-menu {
@@ -541,7 +603,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 140px 0 80px 0;
+  padding: 160px 0 80px 0;
   overflow: hidden;
 }
 
@@ -1253,7 +1315,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   SECCIÓN 06 — CONFIGURADOR VISUAL
+   SECCIÓN 06 — CONFIGURADOR VISUAL & THEME SWITCHER
    ========================================================================== */
 .configurator {
   padding: 100px 0;
@@ -1307,7 +1369,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-neon-magenta);
 }
 
-.color-swatch-opt {
+.color-swatch-opt, .theme-switcher-btn {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1566,6 +1628,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .header { top: 0; }
+  .demo-pitch-bar { font-size: 0.75rem; }
   .nav-menu {
     position: fixed;
     top: 0; right: -100%;
