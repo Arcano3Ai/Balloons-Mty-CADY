@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initHeaderScroll() {
   const header = document.querySelector('.header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 40) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -86,6 +86,14 @@ function initAudioPlayer() {
       audioBtn.querySelector('.audio-label').textContent = 'MÚSICA AMBIENTE';
     }
   });
+
+  // Optional user gesture trigger for ambient music
+  const enableAudioOnFirstTouch = () => {
+    document.removeEventListener('click', enableAudioOnFirstTouch);
+    document.removeEventListener('touchstart', enableAudioOnFirstTouch);
+  };
+  document.addEventListener('click', enableAudioOnFirstTouch, { once: true });
+  document.addEventListener('touchstart', enableAudioOnFirstTouch, { once: true });
 }
 
 /* --------------------------------------------------------------------------
@@ -197,7 +205,7 @@ function initHeroCanvas() {
   // Create 35 floating balloons
   for (let i = 0; i < 35; i++) {
     const p = new BalloonParticle();
-    p.y = Math.random() * height; // distribute initially
+    p.y = Math.random() * height;
     particles.push(p);
   }
 
@@ -214,16 +222,27 @@ function initHeroCanvas() {
 }
 
 /* --------------------------------------------------------------------------
-   6. Interactive Before / After Draggable Comparison Slider
+   6. Interactive Before / After Draggable Comparison Slider (Pixel-Perfect)
    -------------------------------------------------------------------------- */
 function initBeforeAfterSlider() {
   const container = document.getElementById('baContainer');
   const beforeWrap = document.getElementById('baBeforeWrap');
+  const beforeImg = document.getElementById('baBeforeImg');
   const handle = document.getElementById('baHandle');
 
   if (!container || !beforeWrap || !handle) return;
 
   let isDragging = false;
+
+  // Responsive width adjustment for inner before image
+  function syncBeforeImgWidth() {
+    if (beforeImg) {
+      beforeImg.style.width = `${container.offsetWidth}px`;
+    }
+  }
+
+  window.addEventListener('resize', syncBeforeImgWidth);
+  syncBeforeImgWidth();
 
   function updateSliderPosition(clientX) {
     const rect = container.getBoundingClientRect();
