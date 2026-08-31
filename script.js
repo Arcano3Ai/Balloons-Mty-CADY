@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileMenu();
   initHeroCanvas();
+  initAudioPlayer();
+  initVideoPlayer();
   initBeforeAfterSlider();
   initPortfolioFilter();
   initLightboxModal();
@@ -58,7 +60,56 @@ function initMobileMenu() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Floating 3D Ambient Balloons Hero Canvas
+   3. Ambient Music Player Toggle
+   -------------------------------------------------------------------------- */
+function initAudioPlayer() {
+  const audioBtn = document.getElementById('audioToggleBtn');
+  const audio = document.getElementById('ambientAudio');
+
+  if (!audioBtn || !audio) return;
+
+  let isPlaying = false;
+
+  audioBtn.addEventListener('click', () => {
+    if (!isPlaying) {
+      audio.play().then(() => {
+        isPlaying = true;
+        audioBtn.classList.add('playing');
+        audioBtn.querySelector('.audio-label').textContent = 'DESACTIVAR MÚSICA';
+      }).catch(err => {
+        console.log('Audio playback prevented by browser:', err);
+      });
+    } else {
+      audio.pause();
+      isPlaying = false;
+      audioBtn.classList.remove('playing');
+      audioBtn.querySelector('.audio-label').textContent = 'MÚSICA AMBIENTE';
+    }
+  });
+}
+
+/* --------------------------------------------------------------------------
+   4. Video Showreel Player Overlay
+   -------------------------------------------------------------------------- */
+function initVideoPlayer() {
+  const playOverlay = document.getElementById('videoPlayBtn');
+  const video = document.getElementById('mainShowreelVideo');
+
+  if (!playOverlay || !video) return;
+
+  playOverlay.addEventListener('click', () => {
+    playOverlay.classList.add('playing');
+    video.muted = false;
+    video.play();
+  });
+
+  video.addEventListener('pause', () => {
+    playOverlay.classList.remove('playing');
+  });
+}
+
+/* --------------------------------------------------------------------------
+   5. Floating 3D Ambient Balloons Hero Canvas
    -------------------------------------------------------------------------- */
 function initHeroCanvas() {
   const canvas = document.getElementById('heroCanvas');
@@ -163,7 +214,7 @@ function initHeroCanvas() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Interactive Before / After Draggable Comparison Slider
+   6. Interactive Before / After Draggable Comparison Slider
    -------------------------------------------------------------------------- */
 function initBeforeAfterSlider() {
   const container = document.getElementById('baContainer');
@@ -217,7 +268,7 @@ function initBeforeAfterSlider() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Portfolio Filtering & Lightbox Modal
+   7. Portfolio Filtering & Lightbox Modal
    -------------------------------------------------------------------------- */
 function initPortfolioFilter() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -294,7 +345,7 @@ function initLightboxModal() {
 }
 
 /* --------------------------------------------------------------------------
-   6. Interactive Event Visual Configurator
+   8. Interactive Event Visual Configurator
    -------------------------------------------------------------------------- */
 function initInteractiveConfigurator() {
   const configOpts = document.querySelectorAll('.config-opt');
@@ -349,7 +400,7 @@ function initInteractiveConfigurator() {
 }
 
 /* --------------------------------------------------------------------------
-   7. Quote Form & Automated WhatsApp Message Builder
+   9. Quote Form & Automated WhatsApp Message Builder
    -------------------------------------------------------------------------- */
 function initQuoteFormWhatsApp() {
   const form = document.getElementById('quoteForm');
@@ -403,7 +454,7 @@ Enviado desde el sitio web oficial.`;
 }
 
 /* --------------------------------------------------------------------------
-   8. Scroll Reveal Animations (Intersection Observer)
+   10. Scroll Reveal Animations (Intersection Observer)
    -------------------------------------------------------------------------- */
 function initScrollAnimations() {
   const observerOptions = {
@@ -420,7 +471,7 @@ function initScrollAnimations() {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.glass-card, .exp-card, .service-card, .process-step, .testi-card, .config-box, .form-box').forEach(el => {
+  document.querySelectorAll('.glass-card, .exp-card, .service-card, .process-step, .testi-card, .config-box, .form-box, .video-container').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';

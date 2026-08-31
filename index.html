@@ -15,8 +15,8 @@
   <meta property="og:description" content="Experiencias de lujo con globos cromados, arcos orgánicos y backdrops espectaculares para eventos inolvidables en Monterrey.">
   <meta property="og:image" content="assets/images/hero_balloons_lux.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎈</text></svg>">
+  <!-- Favicon Vectorial -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 
   <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -48,6 +48,12 @@
 </head>
 <body>
 
+  <!-- Audio Element Ambient Track -->
+  <audio id="ambientAudio" loop preload="auto">
+    <source src="assets/musica/ambient_luxe.mp3" type="audio/mpeg">
+    <source src="assets/musica/ambient_luxe.wav" type="audio/wav">
+  </audio>
+
   <!-- Ambient Glowing Background Orbs -->
   <div class="ambient-glow orb-1"></div>
   <div class="ambient-glow orb-2"></div>
@@ -56,15 +62,15 @@
   <!-- HEADER & NAVBAR -->
   <header class="header">
     <div class="container header-container">
-      <a href="#hero" class="brand-logo">
-        <div class="brand-name">BALLOONS <span>MTY CADY</span></div>
-        <div class="brand-sub">Por Damariss Huerta</div>
+      <a href="#hero" class="brand-logo" aria-label="BALLOONS MTY CADY">
+        <img src="assets/logo/logo_balloons_mty_cady.svg" alt="BALLOONS MTY CADY Logo" class="brand-logo-img">
       </a>
 
       <nav>
         <ul class="nav-menu">
           <li><a href="#experiencias" class="nav-link">Experiencias</a></li>
           <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+          <li><a href="#video-showreel" class="nav-link">Video Showreel</a></li>
           <li><a href="#decoraciones" class="nav-link">Servicios</a></li>
           <li><a href="#antes-despues" class="nav-link">Antes / Después</a></li>
           <li><a href="#configurador" class="nav-link">Personalizar</a></li>
@@ -73,7 +79,13 @@
       </nav>
 
       <div style="display: flex; align-items: center; gap: 16px;">
-        <a href="#cotizacion" class="btn btn-primary" style="padding: 12px 26px; font-size: 0.85rem;">COTIZAR EVENTO</a>
+        <!-- Audio Ambient Music Toggle Button -->
+        <button id="audioToggleBtn" class="btn-audio-toggle" aria-label="Música Ambiente Luxe">
+          <i class="bi bi-music-note-beamed"></i>
+          <span class="audio-label">MÚSICA AMBIENTE</span>
+        </button>
+
+        <a href="#cotizacion" class="btn btn-primary" style="padding: 12px 24px; font-size: 0.85rem;">COTIZAR EVENTO</a>
         <button class="mobile-toggle" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
       </div>
     </div>
@@ -188,6 +200,31 @@
               <h3 class="exp-card-title">CORPORATIVOS</h3>
               <p class="exp-card-desc">Montajes geométricos y vanguardistas para lanzamientos de productos, galas y premiaciones.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SHOWREEL VIDEO -->
+    <section id="video-showreel" class="video-section">
+      <div class="container" style="text-align: center;">
+        <div class="section-tag"><i class="bi bi-play-circle-fill"></i> SHOWREEL EN VIVO</div>
+        <h2 class="section-title">
+          LA MAGIA EN<br>
+          <span class="gradient-text-gold">MOVIMIENTO.</span>
+        </h2>
+        <p class="section-subtitle">
+          Mira de cerca la calidad artesanal y el proceso de montaje en nuestros eventos más destacados.
+        </p>
+
+        <div class="video-container">
+          <video id="mainShowreelVideo" class="showreel-video" poster="assets/images/hero_balloons_lux.png" controls muted playsinline>
+            <source src="assets/video/showreel_decoraciones.mp4" type="video/mp4">
+            Tu navegador no soporta reproducción de video HTML5.
+          </video>
+          <div class="video-overlay-play" id="videoPlayBtn">
+            <div class="play-icon-glow"><i class="bi bi-play-fill"></i></div>
+            <span>REPRODUCIR SHOWREEL</span>
           </div>
         </div>
       </div>
@@ -711,8 +748,9 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-name" style="font-size: 1.8rem; margin-bottom: 6px;">BALLOONS <span style="color:var(--magenta-neon)">MTY CADY</span></div>
-          <div class="brand-sub" style="font-size: 0.9rem; margin-bottom: 16px;">Damariss Huerta</div>
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <img src="assets/logo/logo_balloons_mty_cady.svg" alt="BALLOONS MTY CADY Logo" style="height: 48px;">
+          </div>
           <p style="color: var(--text-muted); max-width: 380px; font-size: 0.9rem;">
             “Creamos momentos que se quedan contigo.”<br>
             Especialistas en decoración de eventos de alta gama, arcos orgánicos y backdrops exclusivos en Monterrey y área metropolitana.
