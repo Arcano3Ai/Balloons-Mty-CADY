@@ -21,8 +21,8 @@
   <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Custom Design System Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Custom Design System Stylesheet with Cache Busting -->
+  <link rel="stylesheet" href="styles.css?v=3.0">
 
   <!-- Schema.org JSON-LD for LocalBusiness -->
   <script type="application/ld+json">
@@ -98,13 +98,8 @@
   <!-- MAIN CONTENT CONTAINER -->
   <main>
 
-    <!-- HERO SECTION WITH BG VIDEO LOOP & PARTICLES -->
+    <!-- HERO SECTION WITH PARTICLES & GLOWING CANVAS -->
     <section id="hero" class="hero">
-      <!-- Background Video Loop -->
-      <video class="hero-bg-video" autoplay loop muted playsinline poster="assets/images/hero_balloons_lux.png">
-        <source src="assets/video/videointro.mp4" type="video/mp4">
-      </video>
-
       <canvas id="heroCanvas" class="hero-canvas"></canvas>
       <div class="hero-overlay"></div>
 
@@ -229,7 +224,7 @@
         </p>
 
         <div class="video-container" id="openVideoShowreelContainer">
-          <img src="assets/images/hero_balloons_lux.png" alt="Video Thumbnail" class="showreel-video">
+          <img src="assets/images/exp_cumpleanos.png" alt="Video Thumbnail" class="showreel-video">
           <div class="video-overlay-play">
             <div class="play-icon-glow"><i class="bi bi-play-fill"></i></div>
             <span>REPRODUCIR VIDEO EN PANTALLA COMPLETA</span>
@@ -447,7 +442,7 @@
       <div class="container" style="text-align: center;">
         <div class="section-tag"><i class="bi bi-kanban"></i> METODOLOGÍA SIMPLE & EFECTIVA</div>
         <h2 class="section-title">
-          NUESTRO PROCESO EN<br>
+          NUESTROS PROCESO EN<br>
           <span class="gradient-text-magenta">4 PASOS SENCILLOS.</span>
         </h2>
         <p class="section-subtitle">
@@ -816,7 +811,7 @@
     </div>
   </footer>
 
-  <!-- Custom Script JS -->
-  <script src="script.js"></script>
+  <!-- Custom Script JS with Cache Busting -->
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>
