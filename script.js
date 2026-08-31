@@ -120,8 +120,8 @@ function initBalloonCursor() {
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
 
-    // Colors: Magenta, Purple, Gold metallic
-    const colors = ['#FF007F', '#8A2BE2', '#D4AF37', '#FFFFFF'];
+    // Colors: Rosa #C85BA3, Turquesa Neón, Violeta Claro, Blanco
+    const colors = ['#C85BA3', '#00F5D4', '#D8B4F8', '#9B5DE5', '#FFFFFF'];
     const color = colors[Math.floor(Math.random() * colors.length)];
     
     particle.style.background = color;
@@ -217,11 +217,13 @@ function initVideoModal() {
   
   const openShowreelBtn = document.getElementById('openVideoShowreelContainer');
   const openHeroVideoBtn = document.getElementById('openHeroVideoBtn');
+  const bgVideo = openShowreelBtn ? openShowreelBtn.querySelector('video') : null;
 
   if (!modal || !videoPlayer) return;
 
   function openVideo() {
     modal.classList.add('active');
+    if (bgVideo) bgVideo.pause();
     videoPlayer.currentTime = 0;
     videoPlayer.play().catch(err => console.log('Autoplay prevented:', err));
   }
@@ -230,6 +232,7 @@ function initVideoModal() {
     modal.classList.remove('active');
     videoPlayer.pause();
     videoPlayer.currentTime = 0;
+    if (bgVideo) bgVideo.play().catch(() => {});
   }
 
   if (openShowreelBtn) openShowreelBtn.addEventListener('click', openVideo);
@@ -501,11 +504,10 @@ function initInteractiveConfigurator() {
   const summaryBtn = document.getElementById('configBuildBtn');
 
   const selectedState = {
-    eventType: 'Cumpleaños',
-    palette: 'Midnight Gold (Negro, Dorado & Plata)',
-    style: 'Arco Orgánico Premium',
-    scale: 'Mediano (2 a 4 metros)',
-    budget: '$5,000 - $10,000 MXN'
+    eventType: 'Cumpleaños / Fiesta Infantil',
+    palette: 'Rosa Metálico, Turquesa & Blanco (Oficial)',
+    style: 'Renta de Caballetes',
+    budget: '$1,500 - $3,000 MXN'
   };
 
   configOpts.forEach(opt => {
@@ -524,28 +526,21 @@ function initInteractiveConfigurator() {
 
   if (summaryBtn) {
     summaryBtn.addEventListener('click', () => {
-      // Pre-fill form fields in Section 09
-      const selectEvent = document.getElementById('qEventType');
-      const selectBudget = document.getElementById('qBudget');
-      const messageField = document.getElementById('qMessage');
+      // Direct WhatsApp redirect with configurator details
+      const waText = 
+`🎈 *COTIZACIÓN DESDE CONFIGURADOR — NANCY GARCÍA DECORACIÓN* 🎈
+-----------------------------------------
+🎯 *Tipo de Evento:* ${selectedState.eventType}
+🎨 *Paleta de Colores:* ${selectedState.palette}
+✨ *Servicio Solicitado:* ${selectedState.style}
+💰 *Presupuesto Estimado:* ${selectedState.budget}
 
-      if (selectEvent) selectEvent.value = selectedState.eventType;
-      if (selectBudget) selectBudget.value = selectedState.budget;
+Hola Nancy! Quisiera consultar disponibilidad y cotizar esta combinación.`;
 
-      if (messageField) {
-        messageField.value = `¡Hola! Me gustaría cotizar con la siguiente configuración personalizada:\n` +
-          `• Evento: ${selectedState.eventType}\n` +
-          `• Paleta de Colores: ${selectedState.palette}\n` +
-          `• Estilo: ${selectedState.style}\n` +
-          `• Tamaño del Espacio: ${selectedState.scale}\n` +
-          `• Presupuesto Estimado: ${selectedState.budget}`;
-      }
-
-      // Smooth scroll to Section 09
-      const quoteSection = document.getElementById('cotizacion');
-      if (quoteSection) {
-        quoteSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      const encodedMsg = encodeURIComponent(waText);
+      const waNumber = '528129003343';
+      const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
+      window.open(waUrl, '_blank');
     });
   }
 }
@@ -564,39 +559,33 @@ function initQuoteFormWhatsApp() {
     const name = document.getElementById('qName').value.trim();
     const phone = document.getElementById('qPhone').value.trim();
     const eventType = document.getElementById('qEventType').value;
-    const date = document.getElementById('qDate').value;
-    const location = document.getElementById('qLocation').value.trim();
-    const guests = document.getElementById('qGuests').value;
-    const decorType = document.getElementById('qDecorType').value;
-    const budget = document.getElementById('qBudget').value;
+    const date = document.getElementById('qDate') ? document.getElementById('qDate').value : '';
+    const location = document.getElementById('qLocation') ? document.getElementById('qLocation').value.trim() : '';
     const message = document.getElementById('qMessage').value.trim();
 
     if (!name || !phone) {
-      alert('Por favor completa al menos tu Nombre y WhatsApp para ponernos en contacto.');
+      alert('Por favor completa tu Nombre y Teléfono/WhatsApp para comunicarnos contigo.');
       return;
     }
 
-    // Structured message template for WhatsApp
+    // Structured message template for Nancy García Decoración
     const waText = 
-`✨ *SOLICITUD DE COTIZACIÓN / ADQUISICIÓN DEMO* ✨
+`💖 *SOLICITUD DE COTIZACIÓN — NANCY GARCÍA DECORACIÓN* 💖
 -----------------------------------------
 👤 *Nombre:* ${name}
-📱 *WhatsApp:* ${phone}
-🎯 *Objetivo / Evento:* ${eventType}
-📅 *Fecha:* ${date || 'Por definir'}
-📍 *Ubicación:* ${location || 'No especificada'}
-👥 *Invitados Aprox:* ${guests || 'No especificado'}
-🎈 *Tipo de Decoración:* ${decorType || 'Personalizada'}
-💰 *Presupuesto Aprox:* ${budget || 'Por cotizar'}
+📱 *WhatsApp del Cliente:* ${phone}
+🎨 *Servicio:* ${eventType}
+📅 *Fecha del Evento:* ${date || 'Por definir'}
+📍 *Ubicación / Municipio:* ${location || 'No especificada'}
 
-📝 *Mensaje / Detalles:*
+📝 *Detalles del Festejo:*
 ${message || 'Sin mensaje adicional.'}
 
 -----------------------------------------
-Enviado desde el sitio web demo.`;
+Enviado desde nancygarciadecoracion.com`;
 
     const encodedMsg = encodeURIComponent(waText);
-    const waNumber = '528118671408';
+    const waNumber = '528129003343';
     const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
 
     // Open WhatsApp in new tab

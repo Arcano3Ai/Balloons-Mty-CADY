@@ -6,29 +6,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Color Palette — Default: Midnight Magenta & Gold */
-  --bg-midnight: #080611;
-  --bg-card: rgba(18, 14, 34, 0.65);
-  --bg-card-hover: rgba(28, 20, 50, 0.85);
-  --bg-glass: rgba(12, 9, 24, 0.75);
+  /* Color Palette — Nancy García Decoración Oficial */
+  --bg-midnight: #0E0B18;
+  --bg-card: rgba(26, 18, 42, 0.70);
+  --bg-card-hover: rgba(42, 28, 68, 0.88);
+  --bg-glass: rgba(18, 12, 32, 0.80);
   
-  --magenta-neon: #FF007F;
-  --magenta-glow: rgba(255, 0, 127, 0.4);
-  --purple-deep: #4A0E4E;
-  --purple-electric: #8A2BE2;
-  --purple-glow: rgba(138, 43, 226, 0.35);
-  --lavender-light: #E2C4FF;
+  /* Main Brand Colors: Rosa #C85BA3, Violeta Claro, Turquesa Neón, Blanco */
+  --pink-main: #C85BA3;
+  --pink-neon: #E855B5;
+  --pink-glow: rgba(200, 91, 163, 0.45);
   
-  --gold-metallic: #D4AF37;
-  --gold-light: #F3E5AB;
-  --gold-gradient: linear-gradient(135deg, #FFF1B0 0%, #D4AF37 50%, #997A15 100%);
-  --magenta-gradient: linear-gradient(135deg, #FF3399 0%, #FF007F 50%, #99004C 100%);
-  --purple-gradient: linear-gradient(135deg, #A855F7 0%, #6B21A8 100%);
-  --dark-gradient: linear-gradient(180deg, rgba(8, 6, 17, 0.4) 0%, #080611 100%);
+  --violet-light: #D8B4F8;
+  --violet-electric: #9B5DE5;
+  --violet-glow: rgba(155, 93, 229, 0.38);
+  
+  --turquoise-neon: #00F5D4;
+  --turquoise-deep: #2EC4B6;
+  --turquoise-glow: rgba(0, 245, 212, 0.4);
+  
+  --magenta-neon: #C85BA3;
+  --magenta-glow: rgba(200, 91, 163, 0.45);
+  --purple-deep: #3A143C;
+  --purple-electric: #9B5DE5;
+  --purple-glow: rgba(155, 93, 229, 0.35);
+  --lavender-light: #F0D9FF;
+  
+  --gold-metallic: #00F5D4;
+  --gold-light: #80FFEA;
+  --gold-gradient: linear-gradient(135deg, #80FFEA 0%, #00F5D4 50%, #2EC4B6 100%);
+  --magenta-gradient: linear-gradient(135deg, #F080C8 0%, #C85BA3 50%, #8A2D6E 100%);
+  --purple-gradient: linear-gradient(135deg, #F0D9FF 0%, #D8B4F8 50%, #9B5DE5 100%);
+  --turquoise-gradient: linear-gradient(135deg, #80FFEA 0%, #00F5D4 50%, #2EC4B6 100%);
+  --pink-gradient: linear-gradient(135deg, #F080C8 0%, #C85BA3 50%, #8A2D6E 100%);
+  --dark-gradient: linear-gradient(180deg, rgba(14, 11, 24, 0.4) 0%, #0E0B18 100%);
   
   --text-white: #FFFFFF;
-  --text-muted: #B8B5C8;
-  --text-dark: #080611;
+  --text-muted: #D1C5E0;
+  --text-dark: #0E0B18;
   
   /* Typography */
   --font-display: 'Outfit', sans-serif;
@@ -36,41 +51,44 @@
   --font-body: 'Plus Jakarta Sans', sans-serif;
   
   /* Spacing & Borders */
-  --border-glass: 1px solid rgba(255, 255, 255, 0.12);
-  --border-gold: 1px solid rgba(212, 175, 55, 0.4);
-  --border-magenta: 1px solid rgba(255, 0, 127, 0.4);
+  --border-glass: 1px solid rgba(255, 255, 255, 0.15);
+  --border-gold: 1px solid rgba(0, 245, 212, 0.4);
+  --border-magenta: 1px solid rgba(200, 91, 163, 0.45);
+  --border-turquoise: 1px solid rgba(0, 245, 212, 0.45);
+  --border-violet: 1px solid rgba(216, 180, 248, 0.45);
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
   
   /* Shadows & Glows */
-  --shadow-neon-magenta: 0 10px 40px -10px rgba(255, 0, 127, 0.5);
-  --shadow-neon-purple: 0 10px 40px -10px rgba(138, 43, 226, 0.4);
-  --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.4);
+  --shadow-neon-magenta: 0 10px 40px -10px rgba(200, 91, 163, 0.55);
+  --shadow-neon-purple: 0 10px 40px -10px rgba(155, 93, 229, 0.45);
+  --shadow-neon-turquoise: 0 10px 40px -10px rgba(0, 245, 212, 0.45);
+  --shadow-gold: 0 10px 30px -10px rgba(0, 245, 212, 0.4);
   --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.6);
   
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dynamic Themes Override */
+/* Dynamic Themes Override — Nancy García Palette Variants */
 body.theme-royal-purple {
-  --bg-midnight: #0A0518;
-  --magenta-neon: #00E5FF;
-  --magenta-glow: rgba(0, 229, 255, 0.4);
-  --magenta-gradient: linear-gradient(135deg, #00E5FF 0%, #8A2BE2 100%);
-  --shadow-neon-magenta: 0 10px 40px -10px rgba(0, 229, 255, 0.5);
-  --border-magenta: 1px solid rgba(0, 229, 255, 0.4);
+  --bg-midnight: #0A081C;
+  --magenta-neon: #9B5DE5;
+  --magenta-glow: rgba(155, 93, 229, 0.45);
+  --magenta-gradient: linear-gradient(135deg, #D8B4F8 0%, #9B5DE5 100%);
+  --shadow-neon-magenta: 0 10px 40px -10px rgba(155, 93, 229, 0.5);
+  --border-magenta: 1px solid rgba(155, 93, 229, 0.4);
 }
 
 body.theme-rose-champagne {
-  --bg-midnight: #140D12;
-  --magenta-neon: #FF69B4;
-  --magenta-glow: rgba(255, 105, 180, 0.4);
-  --magenta-gradient: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #C71585 100%);
-  --gold-metallic: #F3E5AB;
-  --shadow-neon-magenta: 0 10px 40px -10px rgba(255, 105, 180, 0.5);
-  --border-magenta: 1px solid rgba(255, 105, 180, 0.4);
+  --bg-midnight: #140A12;
+  --magenta-neon: #00F5D4;
+  --magenta-glow: rgba(0, 245, 212, 0.45);
+  --magenta-gradient: linear-gradient(135deg, #80FFEA 0%, #00F5D4 50%, #2EC4B6 100%);
+  --gold-metallic: #C85BA3;
+  --shadow-neon-magenta: 0 10px 40px -10px rgba(0, 245, 212, 0.5);
+  --border-magenta: 1px solid rgba(0, 245, 212, 0.4);
 }
 
 /* Base Resets */
@@ -757,6 +775,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2.5rem;
   padding-left: 6px;
   transition: var(--transition);
+}
+
+.video-container:hover .video-overlay-play {
+  background: rgba(8, 6, 17, 0.2);
 }
 
 .video-container:hover .play-icon-glow {
