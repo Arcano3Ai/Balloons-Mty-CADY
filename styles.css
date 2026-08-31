@@ -76,6 +76,86 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* CUSTOM BALLOON CURSOR STYLES */
+@media (pointer: fine) {
+  body, a, button, input, select, textarea, .exp-card, .portfolio-item, .service-card, .config-opt, .ba-handle {
+    cursor: none !important;
+  }
+}
+
+.balloon-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease-out, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.balloon-cursor.visible {
+  opacity: 1;
+}
+
+.cursor-icon {
+  font-size: 1.9rem;
+  color: var(--magenta-neon);
+  filter: drop-shadow(0 0 12px var(--magenta-neon)) drop-shadow(0 0 25px rgba(255, 0, 127, 0.8));
+  transform: rotate(-15deg);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+.cursor-glow {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 0, 127, 0.45) 0%, rgba(138, 43, 226, 0.2) 60%, transparent 100%);
+  filter: blur(6px);
+  transition: transform 0.2s ease, background 0.3s ease;
+  z-index: -1;
+}
+
+.balloon-cursor.hovering .cursor-icon {
+  transform: scale(1.45) rotate(0deg);
+  color: var(--gold-metallic);
+  filter: drop-shadow(0 0 18px var(--gold-metallic)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.9));
+}
+
+.balloon-cursor.hovering .cursor-glow {
+  transform: scale(1.85);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.55) 0%, rgba(255, 0, 127, 0.35) 70%, transparent 100%);
+}
+
+.balloon-cursor.clicking .cursor-icon {
+  transform: scale(0.9) rotate(-30deg);
+}
+
+.cursor-trail-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  border-radius: 50%;
+  animation: particleFadeOut 0.8s forwards ease-out;
+}
+
+@keyframes particleFadeOut {
+  0% {
+    opacity: 0.85;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) translateY(-25px);
+  }
+}
+
 /* Selection & Scrollbar */
 ::selection {
   background: var(--magenta-neon);
@@ -453,7 +533,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HERO SECTION WITH VIDEO BACKGROUND & BRAND EMBLEM
+   HERO SECTION WITH PARTICLES & GLOWING CANVAS
    ========================================================================== */
 .hero {
   position: relative;
@@ -463,19 +543,6 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   padding: 140px 0 80px 0;
   overflow: hidden;
-}
-
-.hero-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.45;
-  filter: contrast(1.15) brightness(0.75);
-  z-index: 0;
-  transform: scale(1.02);
 }
 
 .hero-canvas {
@@ -505,18 +572,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-brand-badge, .hero-logo-emblem {
   display: none !important;
-}
-
-.hero-logo-emblem {
-  max-height: 140px;
-  width: auto;
-  filter: drop-shadow(0 10px 30px rgba(255, 0, 127, 0.6)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.4));
-  animation: heroLogoGlow 6s infinite alternate ease-in-out;
-}
-
-@keyframes heroLogoGlow {
-  0% { transform: scale(1); filter: drop-shadow(0 10px 30px rgba(255, 0, 127, 0.6)); }
-  100% { transform: scale(1.04); filter: drop-shadow(0 15px 45px rgba(212, 175, 55, 0.8)); }
 }
 
 .hero-badge {
@@ -1529,7 +1584,6 @@ h1, h2, h3, h4, h5, h6 {
   .lightbox-content { grid-template-columns: 1fr; }
   .lightbox-img-wrap { height: 300px; }
   .ba-slider-container { height: 380px; }
-  .hero-logo-emblem { max-height: 90px; }
   .video-modal { padding: 16px; }
   .video-modal-close { padding: 8px 18px; font-size: 0.8rem; }
 }

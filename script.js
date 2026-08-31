@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all interactive modules
+  initBalloonCursor();
   initHeaderScroll();
   initMobileMenu();
   initHeroCanvas();
@@ -18,6 +19,100 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteFormWhatsApp();
   initScrollAnimations();
 });
+
+/* --------------------------------------------------------------------------
+   0. Custom Balloon Cursor with Particle Sparkle Trail
+   -------------------------------------------------------------------------- */
+function initBalloonCursor() {
+  const cursor = document.getElementById('balloonCursor');
+  if (!cursor) return;
+
+  // Only enable on desktop pointers
+  if (window.matchMedia('(pointer: coarse)').matches) {
+    cursor.style.display = 'none';
+    return;
+  }
+
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+  let isVisible = false;
+  let lastParticleTime = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (!isVisible) {
+      isVisible = true;
+      cursor.classList.add('visible');
+    }
+
+    // Spawn subtle glitter trail particle every 60ms during mouse movement
+    const now = Date.now();
+    if (now - lastParticleTime > 60) {
+      createCursorParticle(mouseX, mouseY);
+      lastParticleTime = now;
+    }
+  });
+
+  // Smooth lerp movement loop for 60fps fluidity
+  function renderCursor() {
+    cursorX += (mouseX - cursorX) * 0.25;
+    cursorY += (mouseY - cursorY) * 0.25;
+
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(renderCursor);
+  }
+  renderCursor();
+
+  // Hover detection on interactive elements
+  const hoverables = 'a, button, input, select, textarea, .exp-card, .portfolio-item, .service-card, .config-opt, .ba-handle, .floating-wa-btn';
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(hoverables)) {
+      cursor.classList.add('hovering');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(hoverables)) {
+      cursor.classList.remove('hovering');
+    }
+  });
+
+  document.addEventListener('mousedown', () => {
+    cursor.classList.add('clicking');
+  });
+
+  document.addEventListener('mouseup', () => {
+    cursor.classList.remove('clicking');
+  });
+
+  // Particle particle generator
+  function createCursorParticle(x, y) {
+    const particle = document.createElement('div');
+    particle.className = 'cursor-trail-particle';
+    
+    const size = Math.random() * 8 + 4;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    // Colors: Magenta, Purple, Gold metallic
+    const colors = ['#FF007F', '#8A2BE2', '#D4AF37', '#FFFFFF'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    
+    particle.style.background = color;
+    particle.style.boxShadow = `0 0 10px ${color}`;
+    particle.style.left = `${x + (Math.random() * 16 - 8)}px`;
+    particle.style.top = `${y + (Math.random() * 16 - 8)}px`;
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 800);
+  }
+}
 
 /* --------------------------------------------------------------------------
    1. Header Scroll Effect
