@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrato de Prestación de Servicios y Renta de Mobiliario | Nancy García Decoración</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --pink-main: #C85BA3;
+      --pink-dark: #7A2260;
+      --turquoise-neon: #00F5D4;
+      --turquoise-deep: #00B49F;
+      --violet-electric: #9B5DE5;
+      --dark-midnight: #0E0B18;
+      --gray-light: #F8FAFC;
+      --gray-border: #E2E8F0;
+      --text-main: #1E1B29;
+      --text-muted: #64748B;
+      --gradient-accent: linear-gradient(90deg, #C85BA3 0%, #9B5DE5 50%, #00F5D4 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      background-color: #E2E8F0;
+      padding: 24px 12px;
+    }
+
+    .toolbar-container {
+      max-width: 860px;
+      margin: 0 auto 16px auto;
+      background: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .toolbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark-midnight);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action {
+      background: var(--pink-main);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--pink-dark);
+      transform: translateY(-1px);
+    }
+
+    .sheet {
+      max-width: 860px;
+      min-height: 1120px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px 48px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .letterhead-header {
+      border-bottom: 3px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .brand-logo-wrap {
+      max-width: 300px;
+    }
+
+    .brand-logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .doc-meta-box {
+      text-align: right;
+      background: #F8FAFC;
+      border: 1px solid var(--gray-border);
+      border-left: 4px solid var(--pink-main);
+      padding: 8px 14px;
+      border-radius: 6px;
+      min-width: 230px;
+    }
+
+    .doc-type-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--pink-main);
+      text-transform: uppercase;
+    }
+
+    .doc-folio {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--dark-midnight);
+    }
+
+    .contract-parties {
+      background: #FDFBFD;
+      border: 1px solid #F1E4EE;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .parties-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.84rem;
+      color: var(--pink-main);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .clauses-container {
+      font-size: 0.8rem;
+      color: #334155;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .clause-item {
+      margin-bottom: 10px;
+    }
+
+    .clause-num {
+      font-weight: 700;
+      color: var(--dark-midnight);
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+    }
+
+    .summary-table th {
+      background: #F1F5F9;
+      padding: 6px 10px;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      border-bottom: 2px solid #CBD5E1;
+    }
+
+    .summary-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      margin-top: 22px;
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+
+    .sign-box {
+      text-align: center;
+      border-top: 1px solid #94A3B8;
+      padding-top: 8px;
+    }
+
+    .sign-name {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--dark-midnight);
+    }
+
+    .sign-role {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .letterhead-footer {
+      border-top: 2px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .toolbar-container { display: none !important; }
+      .sheet {
+        box-shadow: none;
+        margin: 0;
+        padding: 20px 30px;
+        max-width: 100%;
+        min-height: auto;
+      }
+      @page { margin: 8mm; size: letter portrait; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE HERRAMIENTAS -->
+  <div class="toolbar-container">
+    <div class="toolbar-title">
+      <i class="bi bi-file-earmark-check-fill" style="color: var(--pink-main);"></i>
+      <span>Contrato de Servicio y Renta de Mobiliario · Nancy García</span>
+    </div>
+    <button class="btn-action" onclick="window.print()">
+      <i class="bi bi-printer-fill"></i> Imprimir o Guardar Contrato (PDF)
+    </button>
+  </div>
+
+  <div class="sheet">
+    <header class="letterhead-header">
+      <div class="header-top">
+        <div class="brand-logo-wrap">
+          <img src="../assets/logo/nancy_garcia_logo.svg" alt="Nancy García Decoración" class="brand-logo-img">
+        </div>
+        <div class="doc-meta-box">
+          <div class="doc-type-title">Contrato de Prestación de Servicios</div>
+          <div class="doc-folio">CONTRATO N°: <span contenteditable="true">CTR-2026-089</span></div>
+          <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;">Monterrey, N.L. a <span contenteditable="true">31 de Agosto de 2026</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- DECLARACIÓN DE LAS PARTES -->
+    <section class="contract-parties">
+      <div class="parties-title">Comparecientes y Datos del Evento</div>
+      <p>
+        Contrato celebrado entre <strong>NANCY GARCÍA DECORACIÓN · GLOBOS · DETALLES</strong> (en lo sucesivo "EL PRESTADOR"), con atención al WhatsApp <strong>81-2900-3343</strong>, y por la otra parte <strong contenteditable="true">C. ALEJANDRO RAMÍREZ SALINAS</strong> (en lo sucesivo "EL ARRENDATARIO/CLIENTE"), con teléfono <strong contenteditable="true">81-8399-2211</strong>, con motivo del festejo a celebrarse en <strong contenteditable="true">Salón Las Nubes, San Pedro Garza García, N.L.</strong> el día <strong contenteditable="true">19 de Septiembre de 2026</strong>.
+      </p>
+    </section>
+
+    <!-- RESUMEN DE MOBILIARIO Y SERVICIOS CONTRATADOS -->
+    <section>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th style="width: 10%;">Cant.</th>
+            <th style="width: 60%;">Descripción del Servicio / Mobiliario Arrendado</th>
+            <th style="width: 15%;">Horario Renta</th>
+            <th style="width: 15%;">Importe</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td>6</td>
+            <td><strong>Estaciones de Caballete Infantil Doble Cara Nancy García</strong> (12 plazas completas con banquitos, mandiles, pinceles, godetes y pinturas vinílicas lavables).</td>
+            <td>4 Horas</td>
+            <td>$2,100.00</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td><strong>Backdrop Temático & Arco Orgánico de Globos (4 metros)</strong> en paleta rosa, morado y toques cromo oro.</td>
+            <td>Evento Completo</td>
+            <td>$2,500.00</td>
+          </tr>
+          <tr>
+            <td>40</td>
+            <td><strong>Yesitos Infantiles Temáticos</strong> con bolsa de celofán y listón para pintar y llevar.</td>
+            <td>Consumible</td>
+            <td>$1,120.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- CLÁUSULAS CONTRACTUALES -->
+    <section class="clauses-container">
+      <div class="clause-item">
+        <span class="clause-num">PRIMERA. OBJETO:</span> EL PRESTADOR se compromete a la instalación, acondicionamiento y renta temporal del mobiliario y decoración descrita en el cuadro anterior para la fecha y horario estipulado.
+      </div>
+      <div class="clause-item">
+        <span class="clause-num">SEGUNDA. PRECIO Y FORMA DE PAGO:</span> El monto total convenido es de <strong contenteditable="true">$5,720.00 MXN</strong>. EL CLIENTE entrega en este acto un anticipo del <strong>50% ($2,860.00 MXN)</strong> para reserva de fecha. El saldo restante (50%) será liquidado al momento de finalizar el montaje, previo al inicio del evento.
+      </div>
+      <div class="clause-item">
+        <span class="clause-num">TERCERA. CUIDADO DEL MOBILIARIO EN RENTA:</span> EL CLIENTE se hace responsable del buen uso y conservación de los caballetes, banquitos y estructuras durante el festejo. Daños graves, roturas o extravío imputables a negligencia de terceros en el festejo causarán un cargo de reposición a costo de costo de taller ($250 MXN por banquito / $600 MXN por caballete).
+      </div>
+      <div class="clause-item">
+        <span class="clause-num">CUARTA. CONDICIONES CLIMÁTICAS (GLOBOS):</span> En eventos al aire libre o bajo sol directo y altas temperaturas (comunes en el Estado de Nuevo León), el látex reacciona naturalmente con oxidación y dilatación. EL PRESTADOR aplica tratamiento abrillantador profesional High-Shine; sin embargo, no se hace responsable por explosión fortuita derivada de exposición directa y prolongada a los rayos solares superiores a 35°C.
+      </div>
+      <div class="clause-item">
+        <span class="clause-num">QUINTA. CANCELACIONES O CAMBIOS DE FECHA:</span> El anticipo no es reembolsable debido al apartado exclusivo de agenda y adquisición previa de insumos temáticos. Los cambios de fecha se permitirán con un mínimo de 5 días de anticipación sujeto a disponibilidad en el calendario.
+      </div>
+    </section>
+
+    <!-- FIRMAS LEGALES -->
+    <section class="signatures-grid">
+      <div class="sign-box">
+        <div class="sign-name">Nancy García</div>
+        <div class="sign-role">Por: Nancy García Decoración · Globos · Detalles</div>
+      </div>
+      <div class="sign-box">
+        <div class="sign-name" contenteditable="true">C. Alejandro Ramírez Salinas</div>
+        <div class="sign-role">El Cliente / Arrendatario (Firma de Conformidad)</div>
+      </div>
+    </section>
+
+    <footer class="letterhead-footer">
+      <div class="footer-flex">
+        <span>📞 WhatsApp: <strong>81-2900-3343</strong></span>
+        <span>Facebook: <strong>Decoraciones García</strong> &bull; <strong>Nancy García Caballetes</strong></span>
+        <span>Monterrey y Área Metropolitana, N.L.</span>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

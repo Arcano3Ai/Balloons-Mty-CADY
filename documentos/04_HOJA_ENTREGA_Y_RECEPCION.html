@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Entrega y Recepción de Mobiliario | Nancy García Decoración</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --pink-main: #C85BA3;
+      --pink-dark: #7A2260;
+      --turquoise-neon: #00F5D4;
+      --turquoise-deep: #00B49F;
+      --violet-electric: #9B5DE5;
+      --dark-midnight: #0E0B18;
+      --gray-light: #F8FAFC;
+      --gray-border: #CBD5E1;
+      --text-main: #1E1B29;
+      --text-muted: #64748B;
+      --gradient-accent: linear-gradient(90deg, #C85BA3 0%, #9B5DE5 50%, #00F5D4 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      background-color: #E2E8F0;
+      padding: 24px 12px;
+    }
+
+    .toolbar-container {
+      max-width: 860px;
+      margin: 0 auto 16px auto;
+      background: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .toolbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--dark-midnight);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action {
+      background: var(--pink-main);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sheet {
+      max-width: 860px;
+      min-height: 1080px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px 48px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .letterhead-header {
+      border-bottom: 3px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .brand-logo-wrap { max-width: 300px; }
+    .brand-logo-img { width: 100%; height: auto; display: block; }
+
+    .doc-meta-box {
+      text-align: right;
+      background: #F8FAFC;
+      border: 1px solid var(--gray-border);
+      border-left: 4px solid var(--pink-main);
+      padding: 8px 14px;
+      border-radius: 6px;
+      min-width: 230px;
+    }
+
+    .doc-type-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--pink-main);
+      text-transform: uppercase;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      background: #FDFBFD;
+      border: 1px solid #F1E4EE;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: 0.82rem;
+    }
+
+    .info-row { display: flex; gap: 8px; margin-bottom: 4px; }
+    .info-label { font-weight: 600; color: #475569; width: 110px; }
+
+    .checklist-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 18px;
+      font-size: 0.8rem;
+    }
+
+    .checklist-table th {
+      background: #F1F5F9;
+      padding: 8px 10px;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      border-bottom: 2px solid #CBD5E1;
+    }
+
+    .checklist-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: middle;
+    }
+
+    .check-box {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #64748B;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .observation-box {
+      background: #F8FAFC;
+      border: 1px dashed var(--gray-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+    }
+
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding: 0 16px;
+    }
+
+    .sign-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--pink-main);
+      text-align: center;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .sign-line {
+      border-top: 1px solid #64748B;
+      padding-top: 6px;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .letterhead-footer {
+      border-top: 2px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .toolbar-container { display: none !important; }
+      .sheet { box-shadow: none; margin: 0; padding: 20px 30px; }
+      @page { margin: 8mm; size: letter portrait; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar-container">
+    <div class="toolbar-title">
+      <i class="bi bi-clipboard2-check-fill" style="color: var(--pink-main);"></i>
+      <span>Hoja de Entrega y Recepción de Mobiliario · Operaciones</span>
+    </div>
+    <button class="btn-action" onclick="window.print()">
+      <i class="bi bi-printer-fill"></i> Imprimir Hoja de Servicio
+    </button>
+  </div>
+
+  <div class="sheet">
+    <header class="letterhead-header">
+      <div class="header-top">
+        <div class="brand-logo-wrap">
+          <img src="../assets/logo/nancy_garcia_logo.svg" alt="Nancy García Decoración" class="brand-logo-img">
+        </div>
+        <div class="doc-meta-box">
+          <div class="doc-type-title">Entrega y Recepción</div>
+          <div style="font-size: 0.82rem; font-weight: 700;">FOLIO: <span contenteditable="true">ENT-2026-089</span></div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Fecha: <span contenteditable="true">19 de Septiembre de 2026</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- DATOS DE LOGÍSTICA -->
+    <section class="info-grid">
+      <div>
+        <div class="info-row"><span class="info-label">Cliente:</span><strong contenteditable="true">Alejandro Ramírez</strong></div>
+        <div class="info-row"><span class="info-label">Teléfono:</span><span contenteditable="true">81-8399-2211</span></div>
+        <div class="info-row"><span class="info-label">Lugar / Salón:</span><span contenteditable="true">Salón Las Nubes, San Pedro Garza García</span></div>
+      </div>
+      <div>
+        <div class="info-row"><span class="info-label">Hora Montaje:</span><strong contenteditable="true">11:30 AM</strong></div>
+        <div class="info-row"><span class="info-label">Hora Recolección:</span><strong contenteditable="true">5:30 PM</strong></div>
+        <div class="info-row"><span class="info-label">Responsable:</span><span contenteditable="true">Equipo Operativo Nancy García</span></div>
+      </div>
+    </section>
+
+    <!-- INVENTARIO FÍSICO DE MOBILIARIO Y MATERIAL -->
+    <section>
+      <table class="checklist-table">
+        <thead>
+          <tr>
+            <th style="width: 8%; text-align: center;">Cant.</th>
+            <th style="width: 48%;">Material / Mobiliario Entregado</th>
+            <th style="width: 22%; text-align: center;">Estado al Entregar</th>
+            <th style="width: 22%; text-align: center;">Estado al Recoger</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td style="text-align: center;">6</td>
+            <td>Caballetes dobles de madera (Nancy García Caballetes)</td>
+            <td style="text-align: center;"><span class="check-box"></span> Completo / Limpio</td>
+            <td style="text-align: center;"><span class="check-box"></span> Devuelto en Buen Estado</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">12</td>
+            <td>Banquitos infantiles de madera</td>
+            <td style="text-align: center;"><span class="check-box"></span> Completo / Sin daño</td>
+            <td style="text-align: center;"><span class="check-box"></span> Devuelto en Buen Estado</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">12</td>
+            <td>Mandiles protectores lavables</td>
+            <td style="text-align: center;"><span class="check-box"></span> Limpios</td>
+            <td style="text-align: center;"><span class="check-box"></span> Devueltos</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">12</td>
+            <td>Godetes y juegos de pinceles</td>
+            <td style="text-align: center;"><span class="check-box"></span> Completos</td>
+            <td style="text-align: center;"><span class="check-box"></span> Devueltos</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">40</td>
+            <td>Yesitos personalizados con kit para pintar</td>
+            <td style="text-align: center;"><span class="check-box"></span> Entregado (Consumible)</td>
+            <td style="text-align: center;">N/A (Recuerdo del cliente)</td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">1</td>
+            <td>Estructura base de arco de globos (Metálica / Tubo)</td>
+            <td style="text-align: center;"><span class="check-box"></span> Instalada Firme</td>
+            <td style="text-align: center;"><span class="check-box"></span> Desmontada</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- OBSERVACIONES -->
+    <section class="observation-box">
+      <strong>Observaciones / Notas de Entrada y Salida:</strong>
+      <p contenteditable="true" style="margin-top: 4px; color: #475569;">
+        El mobiliario se entrega en tiempo y forma dentro del área techada del salón. Se revisa funcionamiento de caballetes junto al anfitrión.
+      </p>
+    </section>
+
+    <!-- FIRMAS DE ENTREGA Y DEVOLUCIÓN -->
+    <section class="signatures-grid">
+      <div>
+        <div class="sign-section-title">1. Conformidad en la Entrega (Inicio)</div>
+        <div style="height: 40px;"></div>
+        <div class="sign-line">Firma del Cliente al Recibir Mobiliario</div>
+      </div>
+      <div>
+        <div class="sign-section-title">2. Conformidad en la Devolución (Fin)</div>
+        <div style="height: 40px;"></div>
+        <div class="sign-line">Firma del Encargado al Recoger Mobiliario</div>
+      </div>
+    </section>
+
+    <footer class="letterhead-footer">
+      <div class="footer-flex">
+        <span>📞 Contacto Operativo: <strong>81-2900-3343</strong></span>
+        <span>Nancy García Decoración · Globos · Detalles</span>
+        <span>Monterrey, N.L.</span>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

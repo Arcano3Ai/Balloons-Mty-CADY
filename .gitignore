@@ -1,0 +1,27 @@
+# === OS Generated ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === IDE / Editor ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === Node (si se usa Vite/npm en desarrollo) ===
+node_modules/
+dist/
+.cache/
+package-lock.json
+
+# === Logs ===
+*.log
+npm-debug.log*
+
+# === Archivos temporales ===
+*.tmp
+*.bak
+*.orig

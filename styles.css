@@ -1474,8 +1474,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .insta-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
   margin-bottom: 40px;
 }
 
@@ -1672,4 +1672,5 @@ h1, h2, h3, h4, h5, h6 {
   .ba-slider-container { height: 380px; }
   .video-modal { padding: 16px; }
   .video-modal-close { padding: 8px 18px; font-size: 0.8rem; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
 }

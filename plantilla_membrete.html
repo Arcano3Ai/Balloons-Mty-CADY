@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membrete Oficial y Cotizador Imprimible | Nancy García Decoración</title>
+  
+  <!-- Tipografías Corporativas Oficiales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* VARIABLES DE DISEÑO INSTITUCIONAL */
+    :root {
+      --pink-main: #C85BA3;
+      --pink-neon: #E855B5;
+      --pink-dark: #7A2260;
+      --turquoise-neon: #00F5D4;
+      --turquoise-deep: #00B49F;
+      --violet-electric: #9B5DE5;
+      --violet-light: #D8B4F8;
+      --dark-midnight: #0E0B18;
+      --gray-light: #F8F9FA;
+      --gray-border: #E2E8F0;
+      --text-main: #1E1B29;
+      --text-muted: #64748B;
+      
+      --gradient-brand: linear-gradient(135deg, #FF9EE2 0%, #E855B5 35%, #C85BA3 70%, #7A2260 100%);
+      --gradient-accent: linear-gradient(90deg, #C85BA3 0%, #9B5DE5 50%, #00F5D4 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text-main);
+      background-color: #E2E8F0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 24px 12px;
+    }
+
+    /* BARRA DE HERRAMIENTAS DE EDICIÓN Y BOTÓN IMPRIMIR (OCULTA AL IMPRIMIR) */
+    .toolbar-container {
+      max-width: 860px;
+      margin: 0 auto 16px auto;
+      background: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .toolbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark-midnight);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: var(--pink-main);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--pink-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #475569;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+
+    /* HOJA DE MEMBRETE (DIMENSIONES ESTÁNDAR CARTA/A4) */
+    .sheet {
+      max-width: 860px;
+      min-height: 1100px;
+      margin: 0 auto;
+      background: white;
+      padding: 45px 50px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* ENCABEZADO DEL MEMBRETE (HEADER) */
+    .letterhead-header {
+      border-bottom: 3px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .brand-logo-wrap {
+      max-width: 320px;
+    }
+
+    .brand-logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .doc-meta-box {
+      text-align: right;
+      background: #F8FAFC;
+      border: 1px solid var(--gray-border);
+      border-left: 4px solid var(--pink-main);
+      padding: 10px 14px;
+      border-radius: 6px;
+      min-width: 220px;
+    }
+
+    .doc-type-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--pink-main);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .doc-folio {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark-midnight);
+    }
+
+    .doc-date {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .header-tagline-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      padding-top: 8px;
+    }
+
+    .tagline-pill {
+      background: #FFF1F9;
+      color: var(--pink-dark);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* DATOS DEL CLIENTE Y EVENTO */
+    .client-event-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      background: #FDFBFD;
+      border: 1px solid #F1E4EE;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+    }
+
+    .client-col h4, .event-col h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--pink-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-row {
+      font-size: 0.84rem;
+      margin-bottom: 4px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #475569;
+      min-width: 80px;
+    }
+
+    .info-value {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* TABLA DE CONCEPTOS / SERVICIOS */
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 0.84rem;
+    }
+
+    .items-table th {
+      background: #F8FAFC;
+      color: var(--dark-midnight);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid #CBD5E1;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .items-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: middle;
+    }
+
+    .items-table tr:hover {
+      background-color: #FAFAFA;
+    }
+
+    .col-qty { width: 8%; text-align: center; }
+    .col-desc { width: 52%; }
+    .col-unit { width: 20%; text-align: right; }
+    .col-total { width: 20%; text-align: right; font-weight: 700; }
+
+    .item-desc-main {
+      font-weight: 600;
+      color: var(--dark-midnight);
+    }
+    .item-desc-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* RESUMEN DE TOTALES Y CONDICIONES */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .terms-box {
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.74rem;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    .terms-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--dark-midnight);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    .totals-box {
+      background: #FFF9FC;
+      border: 1px solid #F3DCEB;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .total-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: #475569;
+    }
+
+    .total-grand {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--pink-main);
+      border-top: 2px solid #F1C4E4;
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+
+    .deposit-badge {
+      font-size: 0.76rem;
+      background: #00F5D4;
+      color: #064E3B;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+      text-align: center;
+    }
+
+    /* FIRMAS DE CONFORMIDAD */
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 20px;
+      margin-bottom: 24px;
+      padding: 0 30px;
+    }
+
+    .sign-box {
+      text-align: center;
+      border-top: 1px solid #94A3B8;
+      padding-top: 8px;
+    }
+
+    .sign-name {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--dark-midnight);
+    }
+
+    .sign-role {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    /* PIE DE PÁGINA DEL MEMBRETE (FOOTER) */
+    .letterhead-footer {
+      border-top: 2px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .footer-channel {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-channel strong {
+      color: var(--dark-midnight);
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 12px;
+    }
+
+    .badge-social {
+      color: #475569;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* MODO IMPRESIÓN (PRINT PREVIEW / PDF SAVE) */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .toolbar-container {
+        display: none !important;
+      }
+      .sheet {
+        box-shadow: none;
+        margin: 0;
+        padding: 25px 35px;
+        max-width: 100%;
+        min-height: auto;
+      }
+      @page {
+        margin: 10mm;
+        size: letter portrait;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE CONTROL PARA EL OPERADOR -->
+  <div class="toolbar-container">
+    <div class="toolbar-title">
+      <i class="bi bi-file-earmark-medical-fill" style="color: var(--pink-main);"></i>
+      <span>Plantilla Oficial de Membrete · Nancy García Decoración</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn-action btn-secondary" onclick="alternarTipoDoc()">
+        <i class="bi bi-arrow-repeat"></i> Cambiar Tipo (Cotización / Contrato)
+      </button>
+      <button class="btn-action" onclick="window.print()">
+        <i class="bi bi-printer-fill"></i> Imprimir o Guardar PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR HOJA DE MEMBRETE -->
+  <div class="sheet" id="hojaMembrete">
+
+    <!-- ENCABEZADO INSTITUCIONAL -->
+    <header class="letterhead-header">
+      <div class="header-top">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo/nancy_garcia_logo.svg" alt="Nancy García Decoración · Globos · Detalles" class="brand-logo-img">
+        </div>
+
+        <div class="doc-meta-box">
+          <div class="doc-type-title" id="lblDocTipo">Presupuesto / Cotización</div>
+          <div class="doc-folio">FOLIO: <span id="lblFolio" contenteditable="true">NGD-2026-089</span></div>
+          <div class="doc-date">Monterrey, N.L. <span id="lblFecha">31 de Agosto de 2026</span></div>
+        </div>
+      </div>
+
+      <div class="header-tagline-bar">
+        <span>“Decoración personalizada con globos y detalles únicos”</span>
+        <span class="tagline-pill">Caballetes &bull; Yesitos &bull; Arcos Orgánicos &bull; Mobiliario</span>
+      </div>
+    </header>
+
+    <!-- DATOS DEL CLIENTE Y DEL EVENTO -->
+    <section class="client-event-grid">
+      <div class="client-col">
+        <h4><i class="bi bi-person-fill"></i> Datos del Anfitrión / Cliente</h4>
+        <div class="info-row">
+          <span class="info-label">Nombre:</span>
+          <span class="info-value" contenteditable="true">Lic. Laura Elizabeth Morales</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Teléfono:</span>
+          <span class="info-value" contenteditable="true">81-1542-8890</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Municipio:</span>
+          <span class="info-value" contenteditable="true">San Pedro Garza García, N.L.</span>
+        </div>
+      </div>
+
+      <div class="event-col">
+        <h4><i class="bi bi-calendar-heart-fill"></i> Especificaciones del Evento</h4>
+        <div class="info-row">
+          <span class="info-label">Festejo:</span>
+          <span class="info-value" contenteditable="true">Cumpleaños Infantil #5 (Temática Candy Pop)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Fecha:</span>
+          <span class="info-value" contenteditable="true">Sábado, 12 de Septiembre de 2026</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Horario:</span>
+          <span class="info-value" contenteditable="true">Montaje: 11:30 AM | Inicio Evento: 3:00 PM</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA DE CONCEPTOS Y SERVICIOS -->
+    <section>
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th class="col-qty">Cant.</th>
+            <th class="col-desc">Descripción del Servicio / Mobiliario</th>
+            <th class="col-unit">P. Unitario</th>
+            <th class="col-total">Importe</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td class="col-qty">1</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Arco de Globos Orgánico Desestructurado (4.5 metros)</div>
+              <div class="item-desc-sub">Paleta Rosa Metálico, Turquesa Neón, Blanco y Acentos Cromo Oro. Calibración multidimensional de alta durabilidad con brillo protector.</div>
+            </td>
+            <td class="col-unit">$2,600.00</td>
+            <td class="col-total">$2,600.00</td>
+          </tr>
+          <tr>
+            <td class="col-qty">4</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Estaciones de Caballete Infantil Nancy García (Doble Cara)</div>
+              <div class="item-desc-sub">Incluye 8 banquitos de madera, godetes, pinceles, mandiles lavables y dotación de pinturas vinílicas no tóxicas.</div>
+            </td>
+            <td class="col-unit">$350.00</td>
+            <td class="col-total">$1,400.00</td>
+          </tr>
+          <tr>
+            <td class="col-qty">25</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Yesitos Cerámicos Temáticos Personalizados</div>
+              <div class="item-desc-sub">Figuras de alta definición empaquetadas en bolsa celofán individual con moño decorativo como recuerdo de fiesta.</div>
+            </td>
+            <td class="col-unit">$28.00</td>
+            <td class="col-total">$700.00</td>
+          </tr>
+          <tr>
+            <td class="col-qty">1</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Renta de Set de 3 Cilindros Blancos para Mesa de Pastel y Dulces</div>
+              <div class="item-desc-sub">Instalación y recolección al término del evento.</div>
+            </td>
+            <td class="col-unit">$650.00</td>
+            <td class="col-total">$650.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- RESUMEN DE TOTALES Y CONDICIONES -->
+    <section class="summary-grid">
+      <div class="terms-box">
+        <div class="terms-title"><i class="bi bi-shield-check"></i> Condiciones de Servicio y Reservación</div>
+        <ul style="padding-left: 14px; margin-top: 4px;">
+          <li><strong>Anticipo de Apartado:</strong> Se requiere un anticipo del <strong>50%</strong> para congelar la fecha en agenda y adquirir los insumos personalizados.</li>
+          <li><strong>Liquidación:</strong> El 50% restante se liquida al concluir el montaje o contraentrega del mobiliario.</li>
+          <li><strong>Cuidado de Mobiliario:</strong> Los caballetes y cilindros en renta son responsabilidad del arrendatario durante el tiempo pactado.</li>
+          <li><strong>Vigencia:</strong> Esta cotización tiene una vigencia formal de 7 días naturales.</li>
+        </ul>
+      </div>
+
+      <div class="totals-box">
+        <div class="total-line">
+          <span>Subtotal de Servicios:</span>
+          <span style="font-weight: 600;" contenteditable="true">$5,350.00 MXN</span>
+        </div>
+        <div class="total-line">
+          <span>Flete e Instalación Mty:</span>
+          <span style="font-weight: 600;" contenteditable="true">$250.00 MXN</span>
+        </div>
+        <div class="total-line total-grand">
+          <span>TOTAL:</span>
+          <span contenteditable="true">$5,600.00 MXN</span>
+        </div>
+        <div class="deposit-badge" contenteditable="true">
+          ANTICIPO SUGERIDO (50%): $2,800.00 MXN
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE DE FIRMAS -->
+    <section class="signatures-grid">
+      <div class="sign-box">
+        <div class="sign-name">Nancy García</div>
+        <div class="sign-role">Dirección Creativa · Nancy García Decoración</div>
+      </div>
+      <div class="sign-box">
+        <div class="sign-name" contenteditable="true">Firma del Cliente de Conformidad</div>
+        <div class="sign-role">Aceptación de Términos y Condiciones</div>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA CON MEDIOS DE CONTACTO OFICIALES -->
+    <footer class="letterhead-footer">
+      <div class="footer-flex">
+        <div class="footer-channel">
+          <i class="bi bi-whatsapp" style="color: #25D366; font-size: 0.95rem;"></i>
+          <span>Atención Directa & WhatsApp: <strong>81-2900-3343</strong></span>
+        </div>
+
+        <div class="footer-badges">
+          <span class="badge-social"><i class="bi bi-facebook" style="color: #1877F2;"></i> Decoraciones García</span>
+          <span>&bull;</span>
+          <span class="badge-social"><i class="bi bi-easel-fill" style="color: var(--pink-main);"></i> Nancy García Caballetes</span>
+        </div>
+
+        <div class="footer-channel">
+          <i class="bi bi-geo-alt-fill" style="color: var(--turquoise-deep);"></i>
+          <span>Monterrey y Área Metropolitana, N.L.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Conmutador simple entre Presupuesto / Cotización y Contrato de Servicio
+    let esContrato = false;
+    function alternarTipoDoc() {
+      esContrato = !esContrato;
+      const lblTipo = document.getElementById('lblDocTipo');
+      const lblFolio = document.getElementById('lblFolio');
+      
+      if (esContrato) {
+        lblTipo.textContent = 'Contrato de Servicio y Renta';
+        lblFolio.textContent = 'CTR-2026-089';
+      } else {
+        lblTipo.textContent = 'Presupuesto / Cotización';
+        lblFolio.textContent = 'NGD-2026-089';
+      }
+    }
+  </script>
+</body>
+</html>

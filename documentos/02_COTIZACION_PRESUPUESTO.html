@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotización Oficial | Nancy García Decoración · Globos · Detalles</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --pink-main: #C85BA3;
+      --pink-neon: #E855B5;
+      --pink-dark: #7A2260;
+      --turquoise-neon: #00F5D4;
+      --turquoise-deep: #00B49F;
+      --violet-electric: #9B5DE5;
+      --violet-light: #D8B4F8;
+      --dark-midnight: #0E0B18;
+      --gray-light: #F8FAFC;
+      --gray-border: #E2E8F0;
+      --text-main: #1E1B29;
+      --text-muted: #64748B;
+      --gradient-accent: linear-gradient(90deg, #C85BA3 0%, #9B5DE5 50%, #00F5D4 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      background-color: #E2E8F0;
+      padding: 24px 12px;
+    }
+
+    .toolbar-container {
+      max-width: 860px;
+      margin: 0 auto 16px auto;
+      background: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .toolbar-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark-midnight);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: var(--pink-main);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--pink-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #475569;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+
+    .sheet {
+      max-width: 860px;
+      min-height: 1080px;
+      margin: 0 auto;
+      background: white;
+      padding: 42px 48px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .letterhead-header {
+      border-bottom: 3px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .brand-logo-wrap {
+      max-width: 320px;
+    }
+
+    .brand-logo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .doc-meta-box {
+      text-align: right;
+      background: #F8FAFC;
+      border: 1px solid var(--gray-border);
+      border-left: 4px solid var(--pink-main);
+      padding: 10px 14px;
+      border-radius: 6px;
+      min-width: 220px;
+    }
+
+    .doc-type-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--pink-main);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .doc-folio {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark-midnight);
+    }
+
+    .doc-date {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .header-tagline-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      padding-top: 6px;
+    }
+
+    .tagline-pill {
+      background: #FFF1F9;
+      color: var(--pink-dark);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .client-event-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      background: #FDFBFD;
+      border: 1px solid #F1E4EE;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+    }
+
+    .client-col h4, .event-col h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--pink-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-row {
+      font-size: 0.84rem;
+      margin-bottom: 4px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #475569;
+      min-width: 85px;
+    }
+
+    .info-value {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 0.84rem;
+    }
+
+    .items-table th {
+      background: #F8FAFC;
+      color: var(--dark-midnight);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 2px solid #CBD5E1;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .items-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: middle;
+    }
+
+    .col-qty { width: 8%; text-align: center; }
+    .col-desc { width: 52%; }
+    .col-unit { width: 20%; text-align: right; }
+    .col-total { width: 20%; text-align: right; font-weight: 700; }
+
+    .item-desc-main {
+      font-weight: 600;
+      color: var(--dark-midnight);
+    }
+    .item-desc-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .terms-box {
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.74rem;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    .terms-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--dark-midnight);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    .totals-box {
+      background: #FFF9FC;
+      border: 1px solid #F3DCEB;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .total-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: #475569;
+    }
+
+    .total-grand {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--pink-main);
+      border-top: 2px solid #F1C4E4;
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+
+    .deposit-badge {
+      font-size: 0.76rem;
+      background: #00F5D4;
+      color: #064E3B;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+      text-align: center;
+    }
+
+    .signatures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 18px;
+      margin-bottom: 22px;
+      padding: 0 24px;
+    }
+
+    .sign-box {
+      text-align: center;
+      border-top: 1px solid #94A3B8;
+      padding-top: 8px;
+    }
+
+    .sign-name {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--dark-midnight);
+    }
+
+    .sign-role {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .letterhead-footer {
+      border-top: 2px solid transparent;
+      border-image: var(--gradient-accent) 1;
+      padding-top: 12px;
+      margin-top: auto;
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .footer-channel strong {
+      color: var(--dark-midnight);
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px;
+    }
+
+    .badge-social {
+      color: #475569;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .toolbar-container {
+        display: none !important;
+      }
+      .sheet {
+        box-shadow: none;
+        margin: 0;
+        padding: 20px 30px;
+        max-width: 100%;
+        min-height: auto;
+      }
+      @page {
+        margin: 8mm;
+        size: letter portrait;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE ACCIÓN -->
+  <div class="toolbar-container">
+    <div class="toolbar-title">
+      <i class="bi bi-receipt-cutoff" style="color: var(--pink-main);"></i>
+      <span>Presupuesto y Cotización Oficial · Nancy García</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn-action btn-secondary" onclick="agregarFila()">
+        <i class="bi bi-plus-circle"></i> Agregar Fila
+      </button>
+      <button class="btn-action" onclick="window.print()">
+        <i class="bi bi-printer-fill"></i> Imprimir o Guardar PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- HOJA CARTA / A4 -->
+  <div class="sheet">
+    <!-- HEADER -->
+    <header class="letterhead-header">
+      <div class="header-top">
+        <div class="brand-logo-wrap">
+          <img src="../assets/logo/nancy_garcia_logo.svg" alt="Nancy García Decoración" class="brand-logo-img">
+        </div>
+        <div class="doc-meta-box">
+          <div class="doc-type-title">Cotización / Presupuesto</div>
+          <div class="doc-folio">FOLIO: <span contenteditable="true">COT-2026-104</span></div>
+          <div class="doc-date">Monterrey, N.L. a <span contenteditable="true">31 de Agosto de 2026</span></div>
+        </div>
+      </div>
+      <div class="header-tagline-bar">
+        <span>“Decoración personalizada con globos y detalles únicos”</span>
+        <span class="tagline-pill">Caballetes &bull; Yesitos &bull; Arcos Orgánicos &bull; Mobiliario</span>
+      </div>
+    </header>
+
+    <!-- DATOS CLIENTE -->
+    <section class="client-event-grid">
+      <div class="client-col">
+        <h4><i class="bi bi-person-fill"></i> Datos del Anfitrión / Cliente</h4>
+        <div class="info-row"><span class="info-label">Nombre:</span><span class="info-value" contenteditable="true">Lic. Mónica Garza T.</span></div>
+        <div class="info-row"><span class="info-label">Teléfono:</span><span class="info-value" contenteditable="true">81 1234 5678</span></div>
+        <div class="info-row"><span class="info-label">Municipio:</span><span class="info-value" contenteditable="true">Guadalupe / Contry, N.L.</span></div>
+      </div>
+      <div class="event-col">
+        <h4><i class="bi bi-calendar-heart-fill"></i> Especificaciones del Festejo</h4>
+        <div class="info-row"><span class="info-label">Festejo:</span><span class="info-value" contenteditable="true">Fiesta Infantil 6 Años (Princesas & Estrellas)</span></div>
+        <div class="info-row"><span class="info-label">Fecha:</span><span class="info-value" contenteditable="true">Domingo, 20 de Septiembre de 2026</span></div>
+        <div class="info-row"><span class="info-label">Horario:</span><span class="info-value" contenteditable="true">Montaje: 12:00 PM | Inicio: 3:30 PM</span></div>
+      </div>
+    </section>
+
+    <!-- TABLA DE CONCEPTOS -->
+    <section>
+      <table class="items-table" id="tablaConceptos">
+        <thead>
+          <tr>
+            <th class="col-qty">Cant.</th>
+            <th class="col-desc">Descripción del Servicio / Mobiliario</th>
+            <th class="col-unit">P. Unitario</th>
+            <th class="col-total">Importe</th>
+          </tr>
+        </thead>
+        <tbody contenteditable="true">
+          <tr>
+            <td class="col-qty">1</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Guirnalda de Globos Orgánica Deluxe (5 Metros)</div>
+              <div class="item-desc-sub">Combinación de tonos rosa pastel, cromo turquesa, lila y dorado metálico con tratamiento High-Shine.</div>
+            </td>
+            <td class="col-unit">$2,800.00</td>
+            <td class="col-total">$2,800.00</td>
+          </tr>
+          <tr>
+            <td class="col-qty">5</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Estaciones de Caballete de Pintura Doble Cara</div>
+              <div class="item-desc-sub">Incluye 10 banquitos, mandiles protectores, pinturas lavables, godetes y pinceles.</div>
+            </td>
+            <td class="col-unit">$350.00</td>
+            <td class="col-total">$1,750.00</td>
+          </tr>
+          <tr>
+            <td class="col-qty">30</td>
+            <td class="col-desc">
+              <div class="item-desc-main">Yesitos Temáticos con Kit de Pintura para Llevar</div>
+              <div class="item-desc-sub">Figuras de yeso artesanal empaquetadas individualmente con tarjeta personalizada.</div>
+            </td>
+            <td class="col-unit">$28.00</td>
+            <td class="col-total">$840.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- RESUMEN Y CONDICIONES -->
+    <section class="summary-grid">
+      <div class="terms-box">
+        <div class="terms-title"><i class="bi bi-shield-check"></i> Condiciones Comerciales</div>
+        <ul style="padding-left: 14px; margin-top: 4px;">
+          <li><strong>Anticipo:</strong> 50% para reservar la fecha en agenda y adquirir el material temático.</li>
+          <li><strong>Liquidación:</strong> 50% restante al terminar el montaje en el salón o domicilio.</li>
+          <li><strong>Vigencia:</strong> Precios válidos durante 7 días naturales a partir de la emisión.</li>
+          <li><strong>Puntualidad:</strong> Montaje programado con 2 horas de antelación al inicio del festejo.</li>
+        </ul>
+      </div>
+
+      <div class="totals-box">
+        <div class="total-line">
+          <span>Subtotal:</span>
+          <span style="font-weight: 600;" contenteditable="true">$5,390.00 MXN</span>
+        </div>
+        <div class="total-line">
+          <span>Flete y Logística:</span>
+          <span style="font-weight: 600;" contenteditable="true">$250.00 MXN</span>
+        </div>
+        <div class="total-line total-grand">
+          <span>TOTAL:</span>
+          <span contenteditable="true">$5,640.00 MXN</span>
+        </div>
+        <div class="deposit-badge" contenteditable="true">
+          ANTICIPO SUGERIDO (50%): $2,820.00 MXN
+        </div>
+      </div>
+    </section>
+
+    <!-- FIRMAS -->
+    <section class="signatures-grid">
+      <div class="sign-box">
+        <div class="sign-name">Nancy García</div>
+        <div class="sign-role">Dirección General · Nancy García Decoración</div>
+      </div>
+      <div class="sign-box">
+        <div class="sign-name" contenteditable="true">Firma del Cliente de Conformidad</div>
+        <div class="sign-role">Aceptación de Presupuesto</div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="letterhead-footer">
+      <div class="footer-flex">
+        <div class="footer-channel">
+          <i class="bi bi-whatsapp" style="color: #25D366;"></i>
+          <span>WhatsApp Ventas: <strong>81-2900-3343</strong></span>
+        </div>
+        <div class="footer-badges">
+          <span class="badge-social"><i class="bi bi-facebook" style="color: #1877F2;"></i> Decoraciones García</span>
+          <span>&bull;</span>
+          <span class="badge-social"><i class="bi bi-easel-fill" style="color: var(--pink-main);"></i> Nancy García Caballetes</span>
+        </div>
+        <div class="footer-channel">
+          <i class="bi bi-geo-alt-fill" style="color: var(--turquoise-deep);"></i>
+          <span>Monterrey y Área Metropolitana, N.L.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function agregarFila() {
+      const tbody = document.querySelector('#tablaConceptos tbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="col-qty">1</td>
+        <td class="col-desc">
+          <div class="item-desc-main">Nuevo Concepto / Mobiliario</div>
+          <div class="item-desc-sub">Detalles y especificaciones adicionales.</div>
+        </td>
+        <td class="col-unit">$0.00</td>
+        <td class="col-total">$0.00</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  </script>
+</body>
+</html>

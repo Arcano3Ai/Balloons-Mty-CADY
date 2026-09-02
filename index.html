@@ -117,14 +117,26 @@
   <main>
 
     <!-- HERO SECTION WITH PARTICLES & GLOWING CANVAS -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero" style="position:relative; overflow:hidden;">
+      <!-- Hero Background Image -->
+      <div class="hero-bg-img" style="position:absolute;inset:0;z-index:0;background-image:url('assets/images/mejora_el_fondo_202609020006.jpeg');background-size:cover;background-position:center top;background-repeat:no-repeat;filter:brightness(0.38) saturate(1.2);"></div>
       <canvas id="heroCanvas" class="hero-canvas"></canvas>
       <div class="hero-overlay"></div>
 
       <div class="hero-float-icon float-1"><i class="bi bi-balloon-heart-fill" style="color: var(--pink-main);"></i></div>
       <div class="hero-float-icon float-2"><i class="bi bi-stars" style="color: var(--turquoise-neon);"></i></div>
 
-      <div class="container hero-content">
+      <!-- Hero Photo Strip -->
+      <div class="hero-photo-strip" style="position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;height:130px;overflow:hidden;opacity:0.55;pointer-events:none;">
+        <img src="assets/images/cumple6.jpeg" alt="" style="object-fit:cover;flex:1;min-width:0;">
+        <img src="assets/images/Bautizo.png" alt="" style="object-fit:cover;flex:1;min-width:0;">
+        <img src="assets/images/cumple7.jpeg" alt="" style="object-fit:cover;flex:1;min-width:0;">
+        <img src="assets/images/sanvalentin.jpeg" alt="" style="object-fit:cover;flex:1;min-width:0;">
+        <img src="assets/images/Graduacion.jpg" alt="" style="object-fit:cover;flex:1;min-width:0;">
+        <img src="assets/images/cumpleaños3.jpeg" alt="" style="object-fit:cover;flex:1;min-width:0;">
+      </div>
+
+      <div class="container hero-content" style="position:relative;z-index:3;">
         <div class="hero-badge">
           <i class="bi bi-balloon-fill"></i> DECORACIÓN CON GLOBOS & DETALLES ÚNICOS
         </div>
@@ -167,13 +179,13 @@
         </p>
 
         <div class="exp-grid">
-          <!-- Card 1: Cumpleaños -->
+          <!-- Card 1: Cumpleaños Premium -->
           <div class="exp-card">
-            <img src="assets/images/710245755_122227172798281131_4856278654808179487_n.jpg" alt="Decoración de Cumpleaños Nancy García" class="exp-card-img">
+            <img src="assets/images/cumple6.jpeg" alt="Decoración de Cumpleaños Premium Nancy García" class="exp-card-img">
             <div class="exp-card-overlay">
               <span class="exp-card-tag">CELEBRACIÓN EXCLUSIVA</span>
               <h3 class="exp-card-title">CUMPLEAÑOS</h3>
-              <p class="exp-card-desc">Diseños espectaculares con arcos orgánicos, letreros neón y cilindros para fiestas inolvidables.</p>
+              <p class="exp-card-desc">Diseños espectaculares con arcos orgánicos, backdrops con neón y cilindros para fiestas inolvidables.</p>
             </div>
           </div>
 
@@ -197,27 +209,27 @@
             </div>
           </div>
 
-          <!-- Card 4: Baby Shower & XV Años -->
+          <!-- Card 4: Bautizo -->
           <div class="exp-card">
-            <img src="assets/images/710406437_122227172426281131_4319019947737162077_n.jpg" alt="Decoración XV Años y Baby Shower" class="exp-card-img">
+            <img src="assets/images/Bautizo.png" alt="Decoración Bautizo Nancy García" class="exp-card-img">
             <div class="exp-card-overlay">
-              <span class="exp-card-tag">BIENVENIDA MÁGICA</span>
-              <h3 class="exp-card-title">BABY SHOWER / XV</h3>
-              <p class="exp-card-desc">Paletas refinadas en rosa metálico, violeta claro y turquesa para escenarios fotográficos mágicos.</p>
+              <span class="exp-card-tag">OCASIÓN ESPECIAL</span>
+              <h3 class="exp-card-title">BAUTIZO & COMUNIÓN</h3>
+              <p class="exp-card-desc">Arcos circulares en blanco y dorado cromado sobre muro verde, perfectos para fotos y recuerdos eternos.</p>
             </div>
           </div>
 
-          <!-- Card 5: Arreglos de Mesa -->
+          <!-- Card 5: Aro Rosa Metálico -->
           <div class="exp-card">
-            <img src="assets/images/710176661_122227173374281131_8766185179516286970_n.jpg" alt="Arreglos de Mesa Nancy García" class="exp-card-img">
+            <img src="assets/images/cumpleaños3.jpeg" alt="Aro de Globos Rosa Nancy García" class="exp-card-img">
             <div class="exp-card-overlay">
-              <span class="exp-card-tag">CENTROS ELEGANTES</span>
-              <h3 class="exp-card-title">ARREGLOS DE MESA</h3>
-              <p class="exp-card-desc">Centros de mesa personalizados con globos y detalles coordinados con tu evento.</p>
+              <span class="exp-card-tag">ARO ORGÁNICO</span>
+              <h3 class="exp-card-title">ARCOS & AROS</h3>
+              <p class="exp-card-desc">Aros orgánicos en rosa metálico y blanco cromado, ideales para cualquier festejo o baby shower.</p>
             </div>
           </div>
 
-          <!-- Card 6: Artículos de Fiesta & Mobiliario -->
+          <!-- Card 6: Mobiliario & Kits -->
           <div class="exp-card">
             <img src="assets/images/mobiliario y kits.jpg" alt="Mobiliario y Artículos de Fiesta Nancy García" class="exp-card-img">
             <div class="exp-card-overlay">
@@ -239,16 +251,30 @@
           <span class="gradient-text-gold">MOVIMIENTO.</span>
         </h2>
         <p class="section-subtitle">
-          Disfruta del video oficial mostrando nuestras creaciones con globos, caballetes y montajes reales.
+          Disfruta de nuestros videos oficiales mostrando nuestras creaciones con globos, caballetes y montajes reales.
         </p>
 
-        <div class="video-container" id="openVideoShowreelContainer" title="Clic para reproducir en pantalla completa con audio">
-          <video class="showreel-video" autoplay muted loop playsinline poster="assets/images/686357397_122224578044281131_2105016642747749563_n.jpg">
-            <source src="assets/video/Animal_bonito_para_web_202608310229.mp4" type="video/mp4">
-          </video>
-          <div class="video-overlay-play">
-            <div class="play-icon-glow"><i class="bi bi-play-fill"></i></div>
-            <span>REPRODUCIR VIDEO EN PANTALLA COMPLETA</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start;">
+          <!-- Video 1 -->
+          <div class="video-container" id="openVideoShowreelContainer" title="Clic para reproducir en pantalla completa con audio">
+            <video class="showreel-video" autoplay muted loop playsinline poster="assets/images/cumple7.jpeg">
+              <source src="assets/video/Animal_bonito_para_web_202608310229.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay-play">
+              <div class="play-icon-glow"><i class="bi bi-play-fill"></i></div>
+              <span>REPRODUCIR VIDEO EN PANTALLA COMPLETA</span>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; border: var(--border-glass); box-shadow: var(--shadow-neon-magenta);">
+            <video autoplay muted loop playsinline poster="assets/images/mejora_el_fondo_202609020006.jpeg" style="width:100%; display:block; max-height:480px; object-fit:cover;">
+              <source src="assets/images/mejora_la_toma_202609012348.mp4" type="video/mp4">
+            </video>
+            <div style="position:absolute; bottom:0; left:0; right:0; background: linear-gradient(to top, rgba(8,6,17,0.9) 0%, transparent 100%); padding: 24px 32px; text-align:left;">
+              <span style="color: var(--gold-metallic); font-size: 0.75rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase;">VIDEO ESPECIAL</span>
+              <h3 style="color: var(--text-white); font-size:1.4rem; margin-top:6px;">Toma Exclusiva de Nuestros Montajes</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -287,19 +313,20 @@
         <div class="portfolio-filters">
           <button class="filter-btn active" data-filter="all">TODOS</button>
           <button class="filter-btn" data-filter="cumpleanos">CUMPLEAÑOS</button>
-          <button class="filter-btn" data-filter="xv">XV AÑOS</button>
-          <button class="filter-btn" data-filter="babyshower">BABY SHOWER</button>
-          <button class="filter-btn" data-filter="caballetes">CABALLETES</button>
+          <button class="filter-btn" data-filter="xv">GRADUACIÓN & XV</button>
+          <button class="filter-btn" data-filter="babyshower">BABY SHOWER & BAUTIZO</button>
+          <button class="filter-btn" data-filter="caballetes">CABALLETES & MOBILIARIO</button>
           <button class="filter-btn" data-filter="yesitos">YESITOS</button>
         </div>
 
         <!-- Asymmetric Editorial Grid -->
         <div class="portfolio-grid">
+          <!-- Fila 1 -->
           <div class="portfolio-item tall" data-category="cumpleanos">
-            <img src="assets/images/686357397_122224578044281131_2105016642747749563_n.jpg" alt="Proyecto Decoración Nancy García" class="portfolio-img">
+            <img src="assets/images/cumple6.jpeg" alt="Cumpleaños Backdrop Rosa Nancy García" class="portfolio-img">
             <div class="portfolio-overlay">
               <div class="portfolio-cat">CUMPLEAÑOS</div>
-              <h3 class="portfolio-name">Arco Rosa Metálico & Turquesa</h3>
+              <h3 class="portfolio-name">Arco Rosa & Verde Cromado</h3>
               <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
             </div>
           </div>
@@ -314,15 +341,25 @@
           </div>
 
           <div class="portfolio-item" data-category="babyshower">
-            <img src="assets/images/710245755_122227172798281131_4856278654808179487_n.jpg" alt="Backdrop Nancy García" class="portfolio-img">
+            <img src="assets/images/710245755_122227172798281131_4856278654808179487_n.jpg" alt="Aro Frozen Baby Shower Nancy García" class="portfolio-img">
             <div class="portfolio-overlay">
-              <div class="portfolio-cat">BABY SHOWER</div>
-              <h3 class="portfolio-name">Backdrop Pastel & Globos</h3>
+              <div class="portfolio-cat">BABY SHOWER / INFANTIL</div>
+              <h3 class="portfolio-name">Aro Frozen Azul & Plata</h3>
               <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
             </div>
           </div>
 
-          <div class="portfolio-item tall" data-category="yesitos">
+          <!-- Fila 2 -->
+          <div class="portfolio-item tall" data-category="cumpleanos">
+            <img src="assets/images/cumple7.jpeg" alt="Cumpleaños Dorado Luxury Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">CUMPLEAÑOS</div>
+              <h3 class="portfolio-name">Aro Blanco & Dorado Luxury</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="yesitos">
             <img src="assets/images/yesitos.jpg" alt="Yesitos Personalizados para Pintar" class="portfolio-img">
             <div class="portfolio-overlay">
               <div class="portfolio-cat">YESITOS</div>
@@ -340,25 +377,82 @@
             </div>
           </div>
 
-          <div class="portfolio-item" data-category="xv">
-            <img src="assets/images/710406437_122227172426281131_4319019947737162077_n.jpg" alt="Decoración XV Años Nancy García" class="portfolio-img">
+          <!-- Fila 3 -->
+          <div class="portfolio-item" data-category="babyshower">
+            <img src="assets/images/Bautizo.png" alt="Bautizo Blanco y Dorado Nancy García" class="portfolio-img">
             <div class="portfolio-overlay">
-              <div class="portfolio-cat">XV AÑOS</div>
-              <h3 class="portfolio-name">Gala Violeta & Rosa</h3>
-              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
-            </div>
-          </div>
-
-          <div class="portfolio-item tall" data-category="cumpleanos">
-            <img src="assets/images/710176661_122227173374281131_8766185179516286970_n.jpg" alt="Arreglos de Mesa Nancy García" class="portfolio-img">
-            <div class="portfolio-overlay">
-              <div class="portfolio-cat">CUMPLEAÑOS</div>
-              <h3 class="portfolio-name">Centros de Mesa con Globos</h3>
+              <div class="portfolio-cat">BAUTIZO</div>
+              <h3 class="portfolio-name">Aro Bautizo Blanco & Dorado</h3>
               <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
             </div>
           </div>
 
           <div class="portfolio-item" data-category="cumpleanos">
+            <img src="assets/images/cumpleaños3.jpeg" alt="Aro Rosa Metálico Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">CUMPLEAÑOS</div>
+              <h3 class="portfolio-name">Aro Rosa Metálico con Neón</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <div class="portfolio-item tall" data-category="cumpleanos">
+            <img src="assets/images/cumple5.jpeg" alt="Cumpleaños Golden Dorado Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">CUMPLEAÑOS</div>
+              <h3 class="portfolio-name">Aro Golden Marble & Neón</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <!-- Fila 4 -->
+          <div class="portfolio-item" data-category="xv">
+            <img src="assets/images/sanvalentin.jpeg" alt="San Valentín Arreglos Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">SAN VALENTÍN & AMOR</div>
+              <h3 class="portfolio-name">Torres San Valentín Rojo & Dorado</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="xv">
+            <img src="assets/images/Graduacion.jpg" alt="Graduación Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">GRADUACIÓN</div>
+              <h3 class="portfolio-name">Arco Graduación Negro & Dorado</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="xv">
+            <img src="assets/images/Graduacion2.jpg" alt="Graduación Azul Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">GRADUACIÓN</div>
+              <h3 class="portfolio-name">Arco Graduación Azul & Dorado</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <!-- Extra -->
+          <div class="portfolio-item" data-category="cumpleanos">
+            <img src="assets/images/710406436_122227173134281131_5661295136769677454_n.jpg" alt="Muro de Globos Rojo Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">MURO DE GLOBOS</div>
+              <h3 class="portfolio-name">Muro Rojo & Dorado Cromado</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="cumpleanos">
+            <img src="assets/images/cumpleaaños.jpeg" alt="Cumpleaños Verde Nancy García" class="portfolio-img">
+            <div class="portfolio-overlay">
+              <div class="portfolio-cat">CUMPLEAÑOS</div>
+              <h3 class="portfolio-name">Aro 60 Años Verde & Dorado</h3>
+              <button class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.8rem;">VER PROYECTO</button>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="caballetes">
             <img src="assets/images/mobiliario y kits.jpg" alt="Mobiliario y Kits Nancy García" class="portfolio-img">
             <div class="portfolio-overlay">
               <div class="portfolio-cat">MOBILIARIO & KITS</div>
@@ -474,13 +568,13 @@
 
         <div id="baContainer" class="ba-slider-container">
           <!-- Image AFTER (Decorated) -->
-          <img src="assets/images/686357397_122224578044281131_2105016642747749563_n.jpg" alt="Espacio decorado Nancy García" class="ba-img-after">
+          <img src="assets/images/Bautizo.png" alt="Decoración de Bautizo Nancy García" class="ba-img-after">
           <span class="ba-badge ba-badge-after">DESPUÉS (DECORACIÓN NANCY GARCÍA)</span>
 
           <!-- Image BEFORE (Empty) -->
           <div id="baBeforeWrap" class="ba-img-before-wrap">
-            <img src="assets/images/711906104_122227173326281131_7642311895774915913_n.jpg" id="baBeforeImg" alt="Espacio previo sin decoración" class="ba-img-before">
-            <span class="ba-badge ba-badge-before">ANTES (ESPACIO PREVIO)</span>
+            <img src="assets/images/cumpleaaños.jpeg" id="baBeforeImg" alt="Decoración de Globos Antes" class="ba-img-before">
+            <span class="ba-badge ba-badge-before">OTRO ESTILO</span>
           </div>
 
           <!-- Slider Handle -->
@@ -735,12 +829,18 @@
         </div>
 
         <div class="insta-grid">
-          <div class="insta-item"><img src="assets/images/686357397_122224578044281131_2105016642747749563_n.jpg" alt="Decoración Nancy García 1"></div>
-          <div class="insta-item"><img src="assets/images/710406436_122227173134281131_5661295136769677454_n.jpg" alt="Decoración Nancy García 2"></div>
-          <div class="insta-item"><img src="assets/images/710245755_122227172798281131_4856278654808179487_n.jpg" alt="Decoración Nancy García 3"></div>
-          <div class="insta-item"><img src="assets/images/710192898_122227172756281131_6587377810733545989_n.jpg" alt="Decoración Nancy García 4"></div>
-          <div class="insta-item"><img src="assets/images/710406437_122227172426281131_4319019947737162077_n.jpg" alt="Decoración Nancy García 5"></div>
-          <div class="insta-item"><img src="assets/images/710176661_122227173374281131_8766185179516286970_n.jpg" alt="Decoración Nancy García 6"></div>
+          <div class="insta-item"><img src="assets/images/cumple5.jpeg" alt="Decoración Cumpleaños Dorado Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/cumple6.jpeg" alt="Decoración Cumpleaños Rosa Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/cumple7.jpeg" alt="Decoración Cumpleaños Blanco Dorado Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/Bautizo.png" alt="Decoración Bautizo Blanco Dorado Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/sanvalentin.jpeg" alt="Arreglo San Valentín Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/710406436_122227173134281131_5661295136769677454_n.jpg" alt="Muro Rojo Dorado Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/Graduacion.jpg" alt="Decoración Graduación Negro Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/Graduacion2.jpg" alt="Decoración Graduación Azul Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/cumpleaaños.jpeg" alt="Decoración Cumpleaños Verde Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/cumpleaños3.jpeg" alt="Aro Rosa Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/710192898_122227172756281131_6587377810733545989_n.jpg" alt="Yesitos Nancy García"></div>
+          <div class="insta-item"><img src="assets/images/710245755_122227172798281131_4856278654808179487_n.jpg" alt="Aro Frozen Nancy García"></div>
         </div>
       </div>
     </section>
@@ -871,8 +971,15 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
-        &copy; 2026 Nancy García Decoración · Globos · Detalles. Todos los derechos reservados.
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <div>
+          &copy; 2026 Nancy García Decoración · Globos · Detalles. Todos los derechos reservados.
+        </div>
+        <div>
+          <a href="documentos/index.html" class="doc-portal-link" style="color: var(--pink-main); font-weight: 600; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s ease;">
+            <i class="bi bi-folder-check"></i> Centro Documental & Membretes
+          </a>
+        </div>
       </div>
     </div>
   </footer>
